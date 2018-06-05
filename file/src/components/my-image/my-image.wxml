@@ -1,5 +1,0 @@
-<view class="my-image" id="my-image">
-	<image src="{{src}}?imageslim" mode='{{mode}}' bindload="_imgOnLoad" hidden="{{!isImg}}" class="image"></image>
-	<image src="{{thumbSrc}}" mode='{{mode}}' hidden="{{isImg}}"  class="image"></image>
-	<slot></slot>
-</view>

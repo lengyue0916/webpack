@@ -1,7 +1,0 @@
-<!--page/rule/rule.wxml-->
-<import src="../../templates/toast/toast.wxml" />
-<import src="../../templates/loading/loading.wxml" />
-<import src="../../templates/wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:content.nodes}}" />
-<template is="toast" data="{{toastMsg,isToast}}"></template>
-<template is="loading" data="{{loading}}" ></template>

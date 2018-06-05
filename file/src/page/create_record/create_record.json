@@ -1,6 +1,0 @@
-{
-	"navigationBarTitleText": "添加录音",
-	"usingComponents": {
-		"record":"/components/record/record"
-	}
-}

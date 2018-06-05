@@ -1,6 +1,0 @@
-
-<import src="../../templates/toast/toast.wxml" />
-<template is="toast" data="{{toastMsg,isToast}}"></template>
-<import src="../../templates/loading/loading.wxml" />
-<template is="loading" data="{{loading}}"></template>
-<my-slider slider-list="{{pages}}" binderror="sliderErr" loading="{{loading}}"></my-slider>
