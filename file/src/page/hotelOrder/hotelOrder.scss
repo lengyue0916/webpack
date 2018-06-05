@@ -1,0 +1,237 @@
+page {
+	background:#fff;
+	color:#565656;
+.hotelDetails{
+	padding: 10rpx 0px;
+
+	
+	.hotelCont{
+		/**display: flex;
+		align-items:center;**/
+		background:#f5f5f5;
+		padding:0 15px;
+		padding-top:10px;
+        .hotelTitle {
+			font-size:1.2em;
+			height:40px;
+			line-height:40px;
+			color:#363636;
+			border-bottom:1px solid #e5e5e5;
+		 }
+		.hotelDes{
+            display: flex; 
+            padding:10px 0; 
+		 }
+		.hotelImg{
+			height:80px;
+			width: 120px;
+			image{
+				width:100px;
+				height:80px;
+				border-radius:4px;
+			}
+		}
+		.hotelInfo{
+			width: calc(100vw - 120px);
+			height: 80px;
+			padding:2px 0;
+
+			/**display: flex;
+			flex-direction: column;
+			justify-content:space-between;***/
+			.hotelName{
+				color:#060606;
+				padding-bottom:8px;
+			}
+			.hotelPTime{
+				color:#888;
+				font-size:28rpx;
+				line-height:23px;
+				text{
+					color:#060606;
+				}
+			}
+			/**.hotelSqu{
+				display: flex;
+				justify-content:space-between;
+				align-items:center;
+				.hotelRoom{
+					display: flex;
+					justify-content:space-between;
+					align-items:center;
+					button{
+						line-height: 25px;
+					}
+				}
+			}**/
+		}
+	}
+
+
+	/***.orderInfo{
+		text-align: center;
+		border: 1px solid #e5e5e5;
+		margin-top: 5px;
+		.info{
+			display: flex;
+			justify-content:space-between;
+			align-items:center;
+		}
+	}***/
+
+	.orderList {
+		height:40px;
+		line-height:40px;
+		margin:0 15px;
+		border-bottom:1px solid #e5e5e5;
+
+		.orderListTitel {
+			color:#060606;
+			display:inline-block;
+			width:68px;
+			float:left;
+		}
+		.hotelRoom{
+			display:inline-block;
+			float:right;
+			view {
+				display:inline-block;
+			}
+			.addM{
+				width:36px;
+				height:26px;
+				line-height:26px;
+				text-align:center;
+				border:1px solid #e5e5e5;
+				background:#f5f5f5;
+				font-weight:bold;
+
+			}
+			.count{
+                padding:0 10px;
+                height:26px;
+                line-height:26px;
+			}
+		}
+
+		.orderInput{
+			display:inline-block;
+			color:#888;
+			font-size:0.9em;
+			float:left;
+
+		}
+		input {
+			overflow:visible;
+			height:40px;
+			min-height:40px;
+		}
+	}
+	.line{
+		height:5px;
+        background:#eee;
+	}
+	.orderNoBorder {
+		border-bottom:none;
+
+		 .tel{
+                    float:right;
+                    color:#565656;
+
+                    .iconTel {
+                        display:inline-block;
+                        width:48rpx;
+                        height:48rpx;
+                        line-height:48rpx;
+                        text-align:center;
+                        
+                        background:#b23929;
+                        margin-right:10rpx;
+                        border-radius:50%;
+                    }
+                }
+
+                .colorGray {
+                	color:#888;
+                	font-size:0.9em;
+                }
+	}
+
+	.orderTip{
+		display: flex;
+		justify-content:space-between;
+		align-items:flex-end;
+		padding:10px 15px;
+		color:#888;
+		.orderLeft{
+             font-size:0.9em;
+             checkbox {
+             	-webkit-transform:scale(0.8);
+             	transform:scale(0.8); 
+             	 
+             }
+             text {
+             	
+             	display:inline-block;
+             	line-height:18px;
+             	border-bottom:1px solid #bbb;
+             }
+		}
+		.orderRt{
+			color:#888;
+			font-size:0.9em;
+			text-align:right;
+            .Total{
+               color:#060606;
+               font-size:1.2em;
+               text {
+               	font-size:1.5em;
+               	color:#b23929;
+               	text.font26 {
+               		font-size:26rpx;
+               	}
+               } 
+            }
+		}
+	}
+
+	.orderSubmit{
+		display: flex;
+		justify-content:space-between;
+		padding:10px 15px;
+		color:#888;
+		.orderSTips{
+          color:#888;
+          font-size:0.9em;
+          .iconInfo{
+          	display:inline-block;
+          	width:18px;
+          	height:18px;
+          }
+          .iconColor{
+
+          }
+		}
+		.orderSButton{
+              button.Btn{
+              	height:40px;
+              	line-height:40px;
+                padding:0 20px;
+              	text-align:center;
+              	background:#b23929;
+              	color:#fff;
+              	border:none;
+              	border-radius:3px;
+              }
+		}
+	}
+
+	text.font24 {
+        font-size:24rpx;
+       }
+    }
+  .toast {
+  	max-width:auto;
+  	padding:0 10px;
+  }
+}

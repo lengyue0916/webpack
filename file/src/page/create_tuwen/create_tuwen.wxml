@@ -1,0 +1,16 @@
+<view class="pic_text">
+	<image class="image_sy" mode="aspectFill" bindtap="browseImage" data-src="{{item.resource_url}}" src="{{item.resource_url}}" wx:if="{{isPicture}}"/>
+    <textarea class="text_area" auto-focus placeholder="给图片添加点描述吧" maxlength="-1" value='{{item.content}}'  cursor-spacing="178" wx:if="{{isPicture}}" id="textarea" bindinput="bindinput"></textarea>
+    <textarea class="text_area" auto-focus placeholder="请输入文字" maxlength="-1" value='{{item.content}}'  cursor-spacing="178" bindinput="bindinput" id="textarea" wx:else></textarea>
+    <view class="tips">提示：直接返回将会放弃你本次你输入的内容</view>
+    <view class="complete" wx:if="{{!isPicture}}">
+    	
+    	<button class=" weui-btn" type="primary" bindtap="complete">完成</button>
+    </view>
+    <view class="{{isPicture?'btn-group':complete}}" wx:if="{{isPicture}}">
+        <button class="record-btn weui-btn" type="primary" wx:if="{{isPicture}}" bindtap="changePic">
+            更换
+        </button>
+        <button class=" weui-btn" type="primary" bindtap="complete">完成</button>
+    </view>
+</view>

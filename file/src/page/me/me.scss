@@ -1,0 +1,96 @@
+@import '../../_theme_variable';
+
+.page {
+    background: #fff;
+    height: 100vh;
+    .me-header {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+
+        .block {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+        i {
+            font-size: 16px;
+        }
+        .atten-hudu {
+            position: absolute;
+            top: 0;
+            background: #fff;
+        }
+        .user-photo {
+            z-index: 2;
+            position: absolute;
+            top: -8px;
+            left: calc(50% - 25px);
+            margin-left: -25px;
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin: 30px auto 10px;
+            border-radius: 50%;
+        }
+        .nickname {
+            padding: 5px 10px;
+            width: 50%;
+            margin: auto;
+            position: absolute;
+            left: 23%;
+            top: 85px;
+            .modify_icon {
+                color: #fff;
+            }
+            input {
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+            }
+            .modify_name {
+                display: block;
+                border-radius: 50%;
+                background: $theme_color;
+                z-index: 2;
+                position: absolute;
+                right: 15px;
+                top: 8px;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                text-align: center;
+            }
+        }
+    }
+    .temporary{
+        display: flex;
+        flex-direction:row;
+        justify-content:space-around;
+        align-items:center;
+        margin-top: 15px;
+        .temp-sub{
+            border: 1px solid #f8f8f8;
+            background: #e5e5e5;
+            padding:5px 30px;
+            border-radius: 5px;
+        }
+    }
+    .page__fd {
+        font-size: 1.2em;
+        height: 30px;
+        line-height: 30px;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+        color: #4f4f4f;
+        i {
+            color: $theme_color;
+            margin-right: 10px;
+        }
+    }
+}
+
+.weui-search-bar__input {
+    color: #fff;
+}

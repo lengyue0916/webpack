@@ -1,0 +1,5 @@
+<template name="yearCard">
+	<view class="yearCard" bindtap="goHeka" data-id="{{list[0].id}}" >
+		<my-image mode="aspectFill" src="{{list[0].cover_img}}" ></my-image>
+	</view>
+</template>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		padding:0;
+		margin:0;
+	}
+	#oDiv {
+		width:600px;
+		height:260px;
+		position:relative;
+		overflow:hidden;
+		margin:60px auto;
+	}
+	.prev, .next {
+        width:36px;
+        line-height:36px;
+        position:absolute;
+        text-align:center;
+        top:43%;
+        background:rgba(0,0,0,.6);
+        color:#fff;
+        z-index:999;
+	}
+	.prev {
+		left:0;
+	}
+	.next {
+		right:0;
+	}
+	#oDiv ul.preImg {
+		/***width:500%;***/
+		position:absolute;
+		left:0;
+	}
+	.preImg li {
+		width:600px;
+		height:260px;
+		float:left;
+		display:inline-block;
+		background:#000;
+	}
+	.preImg li img {
+		width:600px;
+		height:260px;
+        position:absolute;
+
+	}
+    .preImg li p {
+        width:600px;
+        height:36px;
+        line-height:36px;
+        position:absolute;
+        top:0;
+        background:rgba(0,0,0,.6);
+        color:#fff;
+        text-align:center;
+    }
+	.divDot {
+		width:100%;
+		height:36px;
+		line-height:36px;
+		position:absolute;
+		text-align:center;
+		bottom:0px;
+	}
+	.divDot span {
+		display:inline-block;
+		width:10px;
+		height:10px;
+		border-radius:50%;
+		background:rgba(0,0,0,.6);
+	}
+	.divDot span.active {
+		background:#cc1100;
+	}
+</style>
+</head>
+<body>
+    <div id="oDiv">
+    	<a href="javascript:;" class="prev"> < </a>
+    	<a href="javascript:;" class="next"> > </a>
+    	<ul class="preImg">
+    		<li>
+                <img src="../../img/image/01.png" />
+                <p>图1</p>
+            </li>
+    		<li>
+                <img src="../../img/image/02.jpg" />
+                <p>图2</p>
+            </li>
+    		<li>
+                <img src="../../img/image/03.jpg" />
+                <p>图3</p>
+            </li>
+    		<li>
+                <img src="../../img/image/04.jpg" />
+                <p>图4</p>
+            </li>
+    		<li>
+                <img src="../../img/image/02.jpg" />
+                <p>图5</p>
+            </li>
+    	</ul>
+
+    	<div class="divDot">
+    		<span class="active"></span>
+    		<span></span>
+    		<span></span>
+    		<span></span>
+    		<span></span>
+    	</div>
+    </div>
+    <script>
+    	var oDiv=document.querySelector('#oDiv');
+    	var oUl=oDiv.querySelector('.preImg');
+    	var oDot=oDiv.querySelector('.divDot');
+    	var lis=oUl.querySelectorAll('li');
+    	var oSpan=oDot.querySelectorAll('span');
+
+    	var prev=oDiv.querySelector('.prev');
+    	var next=oDiv.querySelector('.next');
+
+    	var len=lis.length;
+    	var w=parseInt(getStyle(lis[0], 'width'));
+        //var timer=0;
+    	
+
+    	oUl.style.width=w*len + 'px';
+
+    	function getStyle(el, attr) {
+    		return el.currentStyle ? el.currentStyle[attr] : getComputedStyle(el, null)[attr];
+    	}
+
+        oDiv.timer=setInterval(function(){
+            fnTab('next');
+        },2000)
+
+        for(var i=0; i<oSpan.length; i++ ) {
+        	oSpan[i].index=i;
+        	oSpan[i].onclick=function(){
+                clearInterval(oDiv.timer);
+        		for(var i=0; i<oSpan.length; i++) {
+                   oSpan[i].className='';
+        		}
+        	  this.className='active';
+        	  oUl.style.left=(-w*this.index)+ 'px';
+        	}
+        }
+
+        prev.onclick=function(){
+           clearInterval(oDiv.timer);
+           fnTab('prev');
+        }
+        next.onclick=function(){
+           clearInterval(oDiv.timer);
+           fnTab('next');
+        }
+        
+       function fnTab(dir){
+            //clearInterval(timer);
+            var pos=parseInt(getStyle(oUl, 'left'));
+            var lf=(dir=='prev'? pos+w : pos-w);
+            if(lf>0) {
+                lf=-w*(len-1);
+            }
+
+            if(lf<=-w*len) {
+               lf=0;
+            }   
+            var n=Math.abs(lf/w);
+              for(var i=0; i<oSpan.length; i++) {
+                 oSpan[i].className='';
+             }
+             oSpan[n].className='active';
+             oUl.style.left=lf + 'px';
+        }
+        // oDiv.onmouseout=function () {
+        //   timer=setInterval(function(){
+        //     fnTab('prev');
+        //   },1500)
+        // }
+
+    </script>
+</body>
+</html>

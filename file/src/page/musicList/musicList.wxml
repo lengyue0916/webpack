@@ -1,0 +1,43 @@
+<view class="list-group"  >
+    <view class="group-title" bindtap="cancel" >
+        <view class="group-name">
+            <text>无背景音乐</text>
+        </view>
+        <view class="group-other">
+           <icon type="success_no_circle" size="15" color="#d90012" hidden="{{select_item_id!=null&&select_item_id!=undefined}}" />
+        </view>
+    </view>
+</view>
+<view class="list-group" wx:for="{{list}}" wx:key="{{item.id}}">
+    <view class="group-title" bindtap="toggle" data-group="{{item.music_type}}" >
+        <view class="group-name">
+            <text>{{item.music_type.mtype}}</text>
+        </view>
+        <view class="group-other">
+            <image class="weui-play" src="../../assets/img/play.gif" wx-if="{{groupID==item.music_type.id&&open_group_id!=item.music_type.id}}"></image>
+        </view>
+    </view>
+    <view class="child-list {{open_group_id==item.music_type.id?'open-child':''}}">
+        <view class="list-item" wx:for="{{item.musics}}" wx:for-item="music" wx:key="{{music.id}}" bindtap="select" data-item="{{music}}" data-groupid="{{item.music_type.id}}" hover-class="navigator-hover">
+            <view class="music-name">
+                <text>{{music.name}}</text>
+            </view>
+            <view class="music-active">
+                <icon type="success_no_circle" size="15" color="#d90012" hidden="{{select_item_id!=music.id}}" />
+                
+            </view>
+            <view class="music-loading"  >
+                <icon type="warn" size="15" color="#d90012" wx-if="{{select_item_id==music.id&&musicWaiting==2}}" />
+                <view class="weui-loading" wx-if="{{select_item_id==music.id&&musicWaiting==1}}"></view>
+                <image class="weui-play" src="../../assets/img/record.gif" wx-if="{{select_item_id==music.id&&musicWaiting==0}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="nodata" wx-if="{{list&&list.length<=0}}">
+    暂时还没有背景音乐哦
+</view>
+<import src="../../templates/loading/loading.wxml" />
+<template is="loading" data="{{loading}}"></template>
+<import src="../../templates/toast/toast.wxml" />
+<template is="toast" data="{{toastMsg,isToast}}"></template>

@@ -1,0 +1,9 @@
+{
+    "usingComponents":
+    {
+        "wonder": "/components/wonderful/wonderful",
+        "my-swiper": "/components/my-swiper/my-swiper"
+    },
+    "disableScroll":true
+
+}

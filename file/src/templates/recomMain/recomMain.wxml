@@ -1,0 +1,27 @@
+<template name="recommed">
+    <view class="myCollection">
+        <view class="weui-flex coll_content" wx:for="{{collectionList.data}}" wx:key="{{item.id}}" bindtap="goDetail" data-id="{{item.id}}" data-search_status="{{item.search_status}}">
+            <view class="coll_bd">
+                <view class="top">
+                    <text>{{item.title}}</text>
+                </view>
+                <view class="weui-flex bottom_l">
+                    <view class="weui-flex__item" style="flex:3;color:#bdbdbd">
+                        <text>{{item.created_at}}</text>
+                    </view>
+                    <view class="weui-flex__item" style="flex:2;text-align:right;color:#828282">
+                        <text>{{item.read_num}}阅读</text>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-flex__item">
+                <image class="images_figure" src="{{item.cover_img}}" />
+            </view>
+        </view>
+        <view class="page__fd" hidden="{{!collectionList.isEnd}}">
+            <view class="weui-loadmore weui-loadmore_line">
+                <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{collectionList.data.length==0?'暂无数据':'已显示全部'}}</view>
+            </view>
+        </view>
+    </view>
+</template>

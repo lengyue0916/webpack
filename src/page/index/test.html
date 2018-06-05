@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* { padding:0; margin:0; }
+	ul { list-style:none; }
+	#oDiv {
+		width:230px;
+		margin:30px auto;
+		border:1px solid #eee;
+
+	}
+	.menu {
+      
+	}
+	.menu h3 {
+		font-size:14px;
+		font-weight:bold;
+		height:36px;
+		line-height:36px;
+		border-bottom:1px solid #eee;
+		color:#363636;
+		padding-left:20px;
+		background:#f5f5f5;
+	}
+	.menu h3.active {
+		background:#464646;
+		color:#fff;
+	}
+	
+	.menu ul {
+		display:none;
+	}
+	.menu li {
+		line-height:30px;
+		color:#5b5b5b;
+		padding-left:30px;
+		font-size:13px;
+		border-bottom:1px solid #eee;
+
+	}
+	.menu li:last-child {
+		
+	}
+</style>
+</head>
+<body>
+     <div id="oDiv">
+      <div class="menu">
+        <h3 class="title">菜单</h3>
+        <ul>
+           <li>111</li>
+           <li>222</li>
+           <li>333</li>
+        </ul>
+      </div>
+      <div class="menu">
+        <h3 class="title">菜单</h3>
+        <ul>
+           <li>111</li>
+           <li>222</li>
+           <li>333</li>
+        </ul>
+      </div>
+      <div class="menu">
+        <h3 class="title">菜单</h3>
+        <ul>
+           <li>111</li>
+           <li>222</li>
+           <li>333</li>
+        </ul>
+      </div>
+   </div>
+   <script>
+   	 (function(){
+   	 	var oDiv=document.querySelector('#oDiv');
+   	 	var oMenu=oDiv.querySelectorAll('.menu');
+   	 	var oH3=oDiv.querySelectorAll('h3');
+   	 	var oUl=oDiv.querySelectorAll('ul');
+   	 	//var flag=true;
+   	 	
+   	 	for(var i=0; i<oH3.length; i++) {
+   	 		oH3[i].index=i;
+   	 		oH3[i].flag=true;  
+   	 		oH3[i].onclick=function() {
+   	 			// console.log(this.flag)
+   	 			// for(var i=0; i<oUl.length; i++) {
+   	 			// 	oUl[i].style.display="none";
+   	 			// }
+   	 			// oUl[this.index].style.display="block";
+
+   	 		    if(this.flag) {
+   	 		    	oUl[this.index].style.display="block";
+   	 		    	this.className='active';
+   	 		    }else {
+   	 		    	oUl[this.index].style.display="none";
+   	 		    	this.className='';
+   	 		    }
+   	 		  	this.flag=!this.flag;
+            }
+   	 	}
+
+   	 })()
+   </script>
+</body>
+</html>

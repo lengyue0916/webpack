@@ -1,0 +1,4 @@
+<import src="../../templates/loading/loading.wxml" />
+<import src="../../templates/recomMain/recomMain.wxml" />
+<template is="recommed" data="{{collectionList}}" hidden="{{loading}}"></template>
+<template is="loading" data="{{loading}}"></template>

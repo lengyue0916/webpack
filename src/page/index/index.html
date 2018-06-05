@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+   * { margin:0; padding:0; }
+  /*** #oDiv {
+    width:600px;
+    height:300px;
+    margin:0px auto;
+    position:relative; 
+   
+   }
+   #oDiv p {
+    width:100%;
+    height:36px;
+    line-height:36px;
+    position:absolute;
+    text-align:center;
+    background:rgba(0,0,0,0.6);
+    top:0;
+    color:#fff;
+   }
+   #oDiv span {
+    width:100%;
+    height:36px;
+    line-height:36px;
+    position:absolute;
+    text-align:center;
+    background:rgba(0,0,0,0.6);
+    bottom:0;
+    color:#fff;
+   }
+   #oDiv img {
+    width:600px;
+    height:300px;
+   }
+   .oBtn {
+     width:600px;
+     margin:0 auto;
+     padding:10px 0;
+     text-align:center;
+   }
+   .oBtn button {
+     margin:0 10px;
+   }***/
+</style>
+</head>
+<body>
+    <div>
+       <input type="text" value="11">
+       <input type="text" value="12">
+       <input type="text" value="13">
+    </div>
+   <!--<div id="oDiv">
+      <p>文字正在加载中</p>
+      <img src=""　/>
+      <span>加载中</span>
+   </div>
+   <div class="oBtn">
+     <button>上一张</button>
+     <button>下一张</button>
+   </div>-->
+  
+   
+</body>
+<script>
+  (function(){
+     var oInput=document.querySelectorAll("input[type='text']");
+     for(var i=0; i<oInput.length; i++) {
+       //oInput[i].index=i;
+       //console.log(oInput[i].value);
+       oInput[i].onclick=(function (num){
+           console.log(oInput[num].value);
+       })(i)
+     }
+  })()
+  // (function(){
+  //      var oDiv=document.querySelector("#oDiv");
+  //      var oBtn=document.querySelectorAll("button")
+  //      var oP=oDiv.querySelector('p');
+  //      var oSpan=oDiv.querySelector('span');
+  //      var oImg=oDiv.querySelector('img');
+  //      var oTxt=['图一','图二','图三','图四'];
+  //      var ArrayImg=['../../img/image/01.png','../../img/image/02.jpg','../../img/image/03.jpg','../../img/image/04.jpg'];
+  //      var num=0;
+  //      var timer=0;
+      
+  //      fnTab();
+  //      payAuto();
+
+  //      function　fnTab(){
+  //        oP.innerHTML=oTxt[num];
+  //        oSpan.innerHTML=num+1+'/'+oTxt.length;
+  //        oImg.src=ArrayImg[num];
+  //      }
+
+  //      function payAuto(){
+  //          clearInterval(timer);
+  //          timer=setInterval(function(){
+  //            num++;
+  //            num=num%oTxt.length;
+  //            fnTab()
+  //        },1000);
+  //      }
+       
+      
+
+  //      oBtn[0].onclick=function(){
+  //         num--;
+  //         if(num<0) {
+  //           num=oTxt.length-1;
+  //         }
+  //         fnTab()
+  //      }
+  //      oBtn[1].onclick=function(){
+  //         num++;
+  //         if(num>=oTxt.length) {
+  //           num=0;
+  //         }
+  //         fnTab()
+  //      }
+
+  // })()
+      
+</script>
+</html>

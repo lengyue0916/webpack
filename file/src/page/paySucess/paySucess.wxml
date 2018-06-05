@@ -1,0 +1,16 @@
+<view class="paySucess">
+	
+	<view class="line"></view>
+	<view class="orderDetails-Info">订单编号：{{orderDes.order_sn}}</view>
+	<view class="orderDetails-Tip">
+		<view wx:if="{{room_pay_way==1}}"><icon type="success_no_circle" size="60" color="#7DBD07"></icon>订金支付成功</view>
+		<view wx:if="{{room_pay_way==0}}"><icon type="success_no_circle" size="60" color="#7DBD07"></icon>支付成功</view>
+		<view>{{orderDes.health_base.name}}基地静候您的光临</view>
+	</view>
+	<view class="orderDetails-Tel">如有疑问，请拨打就喜欢客服电话：4008-75-4008</view>
+	<view class="orderDetails-btn"><button class="Btn" bindtap="orderMore">查看订单详情</button></view>
+	<view class="tip" bindtap="Calling">
+		<view class="iconTel"><i class="iconfont icon-phone-channel1" style="font-size:14px;color:#fff"></i></view>
+		<text>租车服务</text>
+     </view>
+</view>

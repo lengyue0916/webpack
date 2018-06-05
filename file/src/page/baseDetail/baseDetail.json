@@ -1,0 +1,8 @@
+{
+	"navigationBarTitleText": "就喜欢－旅居基地",
+	"usingComponents":
+    {
+    	"tabs":"/components/tabs/tabs",
+        "share-base": "/components/share-base/share-base"
+    }
+}

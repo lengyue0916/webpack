@@ -1,0 +1,25 @@
+.toast {
+    position: fixed;
+    z-index: 99999;
+    bottom:30px;
+    left: 50%;
+    background: rgba(0, 0, 0, .7);
+    margin: 0 auto;
+    transform: translate(-50%,0px);
+    text-align: center;
+    color: #fff;
+    font-size: 30rpx;
+    padding: 0px 10px;
+    border-radius: 4px;
+    /**max-width: 250px;
+    min-width: 80px;***/
+    //height: 30px;
+    line-height: 30px;
+    display:inline-block
+    //padding:10px;
+    //overflow:hidden;
+    //text-overflow: ellipsis;
+    //white-space: nowrap;
+    
+}
+

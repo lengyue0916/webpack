@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    * {
+    	padding:0px;
+    	margin:0px;
+    }
+    ul {
+    	list-style:none;
+    }
+	#oDiv {
+		width:100px;
+		border:1px solid #eee;
+		height:500px;
+		overflow:-hidden;
+		padding:10px;
+		margin:60px 20px;
+	}
+	#oDiv .oBtn {
+		text-align:center;
+		width:100px;
+		line-height:23px;
+	}
+	#oDiv .Box {
+	  overflow:hidden;
+	  margin:10px 0px;
+	  height:430px;
+	  position:relative;
+	}
+	#oDiv .Box ul {
+      position:absolute;
+      top:0;
+	}
+	#oDiv li{
+		width:100px;
+		height:60px;
+		background:#000;
+		margin:2px 0 8px 0;
+	}
+</style>
+</head>
+<body>
+    <div id="oDiv">
+    	<button class="oBtn">上</button>
+    	<div class="Box">
+	    	<ul>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    		<li></li>
+	    	</ul>
+	    </div>
+	    <button class="oBtn">下</button> 	
+    </div>
+    <script>
+    	var oDiv=document.querySelector('#oDiv');
+    	var oBox=oDiv.querySelector('.Box');
+    	var oBtn=oDiv.querySelectorAll('button');
+    	var oUl=document.querySelector('ul');
+        var lis=oUl.querySelectorAll('li');
+        var len=lis.length;
+        var h1=(parseInt(getStyle(lis[0],'height'))+6)*len;
+        var h2=parseInt(getStyle(oBox,'height'));
+        var timer=0;
+        
+        oBtn[0].onmousedown=function(){
+           Move(-3,'up')
+        }
+
+       oBtn[1].onmousedown=function(){
+          Move(3,'down')
+        }
+        function Move(speed,dir) {
+        	clearInterval(timer);
+        	 timer=setInterval(function(){
+          	var pos=parseInt(getStyle(oUl,'top'));
+            // pos+=speed;
+            // if(pos>=0){
+            //    clearInterval(timer);
+            //    pos=0;
+            // }
+            
+            pos+=speed;
+
+            if(pos>=0 && dir=='down'){
+               clearInterval(timer);
+               pos=0;
+            }
+
+           if(pos<=h2-h1 && dir=='up') {
+            	clearInterval(timer);
+                pos=h2-h1;
+            }
+           oUl.style.top=pos + 'px';
+          },30)
+        }
+        
+        oBtn[0].onmouseup=oBtn[1].onmouseup=function() {
+        	clearInterval(timer);
+        }
+         
+        function getStyle(el, attr) {
+        	return el.currentStyle ? el.currentStyle[attr] : getComputedStyle(el, null)[attr];
+        }
+    </script>
+</body>
+</html>

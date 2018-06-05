@@ -1,0 +1,30 @@
+@import '../../theme_variable';
+.title {
+
+    
+    .text_area {
+        width: auto;
+        padding: $page_padding;
+        height: 50px;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5; // border-radius: 5px;
+        // margin-top: 10px;
+    }
+    .tips {
+        color: #9a9a9a;
+        font-size: 14px;
+        padding-left: $page_padding;
+        padding-right: $page_padding;
+    }
+    .complete {
+        margin-top: 10px;
+        padding-left: $page_padding;
+        padding-right: $page_padding;
+        button {
+            background: $theme_color;
+            &.button-hover {
+                background-color: #bb1b1e;
+            }
+        }
+    }
+}

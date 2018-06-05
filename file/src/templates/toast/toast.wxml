@@ -1,0 +1,5 @@
+<template name="toast">
+    <view class="toast {{isToast?'active':''}}" hidden="{{!isToast}}">
+        <text>{{toastMsg}}</text>
+    </view>
+</template>
