@@ -1,0 +1,74 @@
+<import src="../../templates/loading/loading.wxml" />
+<view class="page" hidden="{{loading}}">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar" style="background:#fff;">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <!-- 推荐 -->
+                <view hidden="{{activeIndex != 1}}">
+                    <view class="weui-flex" wx:for="{{recommend}}" wx:key="{{index}}" bindtap="attenDetail" data-id='{{item.id}}'>
+                        <view class="ui_avatar">
+                            <image src="{{item.user_avatar || '../../assets/img/yonghu.png'}}"></image>
+                        </view>
+                        <view class="weui-flex__item">
+                            <view style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 25vw;">{{item.truename}}</view>
+                            <view class="ui_title">
+                                <view class="ui-name">
+                                    <text>粉丝</text>
+                                    <text style="color: #828282;">{{item.fans_count}}</text>
+                                </view>
+                                <view class="ui-name">
+                                    <text>创作</text>
+                                    <text style="color: #828282;">{{item.articles_count}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="ui-btn">
+                            <button disabled="{{item.guanZhu}}"  class="weui-btn mini-btn" size="mini" catchtap="recomBody" data-id="{{item.id}}" data-index="{{index}}">{{item.guanZhu ? '已':'' }}关注</button>
+                        </view>
+                    </view>
+                    <view wx:if="{{recommend.length==0}}" style="color:#bdbdbd;text-align:center;margin-top:100px;">
+                        <i class="iconfont icon-qunliao" style="font-size: 36px;"></i>
+                        <view>暂无推荐</view>
+                    </view>
+                </view>
+                <!-- 关注 -->
+                <view hidden="{{activeIndex != 0}}">
+                    <view class="weui-flex" wx:for="{{attention}}" wx:key="{{index}}" bindtap="attenDetail" data-id='{{item.follow_id}}'>
+                        <view class="ui_avatar">
+                            <image src="{{item.follow_user_info.user_avatar || '../../assets/img/yonghu.png'}}"></image>
+                        </view>
+                        <view class="weui-flex__item">
+                            <view style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{item.follow_user_info.truename}}</view>
+                            <view class="ui_title">
+                                <view class="ui-name">
+                                    <text>粉丝</text>
+                                    <text style="color: #828282;">{{item.fans_count}}</text>
+                                </view>
+                                <view class="ui-name">
+                                    <text>创作</text>
+                                    <text style="color: #828282;">{{item.articles_count}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="ui-btn">
+                            <button class="weui-btn mini-btn" size="mini" catchtap="attenBody" data-id="{{item.id}}" data-index="{{index}}">取消关注</button>
+                        </view>
+                    </view>
+                    <view wx:if="{{attention.length==0}}" style="color:#bdbdbd;text-align:center;margin-top:100px;">
+                        <i class="iconfont icon-qunliao" style="font-size: 36px;"></i>
+                        <view>您还没有关注任何人</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<template is="loading" data="{{loading}}"></template>

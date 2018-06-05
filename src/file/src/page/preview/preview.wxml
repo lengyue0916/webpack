@@ -1,0 +1,29 @@
+<import src="../../templates/default/default.wxml" />
+<view class="template-container" style="background:{{form.article_bgimg.bgcolor}} url({{form.article_bgimg.img}}) no-repeat;background-size:100%;">
+    <template is="{{form.desc}}" data="{{...form}}" style="min-height:calc(100vh  - 180px)" />
+</view>
+<view class="other">
+    <view class="article-button">
+        <view class="left">
+            <button class="weui-btn back" type="primary" bindtap="goBack">上一步</button>
+        </view>
+        <view class="right">
+            <button  class="weui-btn submit {{agreeRule?'':'submit-disabled'}}" type="primary" bindtap="submit">发布</button>
+        </view>
+    </view>
+    <view class="other-rule">
+        <checkbox-group bindchange="checkboxChange" style="display:inline-block">
+            <checkbox checked="{{agreeRule}}" />
+        </checkbox-group>
+        <navigator url="/page/rule/rule" class="rule-title">同意，《就喜欢小程序文章发布条款》</navigator>
+    </view>
+    <view class="article-template">
+        <view class="template {{form.bg_img_id==item.id?'active':''}}" wx:for="{{templates}}" bindtap="selectTmp" data-item="{{item}}" wx:key="item.id" style="background:{{item.bgcolor}} url({{item.img}}) no-repeat;background-size:100%;">
+            <view class="name">
+                <text>{{item.desc}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<import src="../../templates/toast/toast.wxml" />
+<template is="toast" data="{{toastMsg,isToast}}"></template>

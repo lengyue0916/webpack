@@ -1,0 +1,50 @@
+<!--page/orderManage/orderManage.wxml-->
+<import src="../../templates/loading/loading.wxml" />
+<template is="loading" data="{{loading}}"></template>
+<import src="../../templates/toast/toast.wxml" />
+<template is="toast" data="{{toastMsg,isToast}}"></template>
+<view class="page">
+  
+   <view class="navbar">
+     <view wx:for="{{tab}}" wx:key="{{index}}" wx:for-item="Tabs" class="navbar-item {{activeIndex==index?'navbarActive':''}}" id="{{index}}" data-tab="{{Tabs}}" data-id="{{index}}" data-status="{{Tabs.status}}" bindtap="tabFun">{{Tabs.title}}</view>
+   </view>
+   
+   <view wx:for="{{status}}" wx:key="{{index}}" wx:for-item="{{status}}" class="orderList {{activeIndex==index?'show':'hidden'}}">
+      <view class="order" wx:for="{{orderList}}" wx:for-item="item"  wx:key="{{item.id}}" data-orderstatus="{{item.order_status}}"  data-id="{{item.id}}" data-payway="{{item.health_room.room_pay_way}}" bindtap="payment">
+         <view class="line"></view>
+         <view class="orderTitle">
+               <view class="orderNum">订单编号　<text>{{item.order_sn}}</text></view>
+               <view class="redColor" wx:if="{{item.order_status=='wait_confirmation'}}">待确认</view>
+               <view class="redColor" wx:elif="{{item.order_status=='wait_pay'}}">待支付</view>
+               <view class="greenColor" wx:elif="{{item.order_status=='paid'}}">已支付</view>
+               <view class="grayColor" wx:elif="{{item.order_status=='cancel'}}">已取消</view>
+               <view class="grayColor" wx:elif="{{item.order_status=='order_cancel'}}">退款已取消</view>
+
+          </view>
+          <view class="orderInfo">
+              <view class="orderInfoLf">
+                 <view class="orderInfoT">{{item.health_base.name}}</view>
+                 <view class="orderName">{{item.health_room.name}}</view>
+                 <view>房间 {{item.room_num}}　　人数　{{item.health_room.desc}}</view>
+                 <view>入住：{{item.time_start}} - {{item.time_end}}<text class="txtDays">{{item.day_num}}晚</text></view> 
+              </view>
+              <view class="orderInfoRt" wx:if="{{item.health_room.room_pay_way==0}}">
+                <view class="orderInfoP">总价：<text><text class="font26">￥</text>{{item.order_price}}元</text></view>
+              </view>
+
+              <view class="orderInfoRt" wx:if="{{item.health_room.room_pay_way==1}}">
+                 <view class="orderInfoP">订金：<text><text class="font26">￥</text>{{item.Depositprice}}元</text></view>
+                 <view>总价：<text class="font24">￥</text>{{item.order_price}}元</view>
+                 <view>尾款：<text class="font24">￥</text>{{item.Balanceprice}}元</view>
+                 <view>到店支付</view>
+              </view>
+          </view>
+
+    </view>
+  </view>
+</view>
+<view class="page__fd" hidden="{{!isEnd}}">
+  <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{orderList.length==0?'暂无数据':'已显示全部'}}</view>
+  </view>
+</view>

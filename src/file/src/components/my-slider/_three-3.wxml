@@ -1,0 +1,61 @@
+<template name="three-3">
+    <view class="three">
+        <view class="top-img">
+            <my-image class="image" src="{{list[0].cover_img}}" mode='aspectFill' bindtap="goInDetails" data-id="{{list[0].id}}" data-search_status="{{list[0].search_status}}">
+                <view class="top-title">
+                    <view class="title">
+                        <text>{{list[0].title}}</text>
+                    </view>
+                    <view class="title-other">
+                        <view class="time">
+                            <text>{{list[0].publish_time}}</text>
+                        </view>
+                        <view class="read-num">
+                            <text>{{list[0].read_num||0}}阅读</text>
+                        </view>
+                    </view>
+                </view>
+            </my-image>
+        </view>
+        <view class="bottom">
+            <view class="bottom-item " bindtap="goInDetails" data-id="{{list[1].id}}" data-search_status="{{list[1].search_status}}">
+                <view class="bottom-item-left ">
+                    <view class="bottom-item-title ">
+                        <text>{{list[1].title}}</text>
+                    </view>
+                    <view class="bottom-item-other ">
+                        <view class="time ">
+                            <text>{{list[1].publish_time}}</text>
+                        </view>
+                        <view class="read-num ">
+                            <text>{{list[1].read_num||0}}阅读</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom-item-right ">
+                    <!-- <image src="{{list[1].cover_img}} " mode='aspectFill' lazy-load></image> -->
+                    <my-image mode="aspectFill" src="{{list[1].cover_img}}" class="image"></my-image>
+                </view>
+            </view>
+            <view class="bottom-item " bindtap="goInDetails" data-id="{{list[2].id}}" data-search_status="{{list[2].search_status}}">
+                <view class="bottom-item-left ">
+                    <view class="bottom-item-title ">
+                        <text>{{list[2].title}}</text>
+                    </view>
+                    <view class="bottom-item-other ">
+                        <view class="time ">
+                            <text>{{list[2].publish_time}}</text>
+                        </view>
+                        <view class="read-num ">
+                            <text>{{list[2].read_num||0}}阅读</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom-item-right ">
+                    <!-- <image src="{{list[2].cover_img}} " mode='aspectFill' lazy-load></image> -->
+                    <my-image mode="aspectFill" src="{{list[2].cover_img}}" class="image"></my-image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

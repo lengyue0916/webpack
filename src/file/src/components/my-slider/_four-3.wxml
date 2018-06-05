@@ -1,0 +1,85 @@
+<template name="four-3">
+    <view class="four-three">
+        <view class="four-top">
+            <view class="top-only" bindtap="goInDetails" data-id="{{list[0].id}}" data-search_status="{{list[0].search_status}}">
+                <!-- <image src="{{list[0].cover_img}}" mode="aspectFill" lazy-load></image> -->
+                <my-image mode="aspectFill" src="{{list[0].cover_img}}" class="image"></my-image>
+                <view class="top-desc">
+                    <view class="item-title">
+                        <text>{{list[0].title}}</text>
+                    </view>
+                    <view class="item-other">
+                        <view class="item-time">
+                            <text>{{list[0].publish_time}}</text>
+                            <text>来源:{{list[0].source_topic}}</text>
+                        </view>
+                        <view class="read-num">
+                            <text>{{list[0].read_num||0}}阅读</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="top-only" bindtap="goInDetails" data-id="{{list[1].id}}" data-search_status="{{list[1].search_status}}">
+                <!-- <image src="{{list[1].cover_img}}" mode="aspectFill" lazy-load></image> -->
+                <my-image mode="aspectFill" src="{{list[1].cover_img}}" class="image"></my-image>
+                <view class="top-desc">
+                    <view class="item-title">
+                        <text>{{list[1].title}}</text>
+                    </view>
+                    <view class="item-other">
+                        <view class="item-time">
+                            <text>{{list[1].publish_time}}</text>
+                            <text>来源:{{list[1].source_topic}}</text>
+                        </view>
+                        <view class="read-num">
+                            <text>{{list[1].read_num||0}}阅读</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="four-bottom">
+           <view class="bottom-item " bindtap="goInDetails" data-id="{{list[2].id}}" data-search_status="{{list[2].search_status}}">
+               <view class="bottom-item-left ">
+                   <view class="bottom-item-title">
+                       <text>{{list[2].title}}</text>
+                   </view>
+                   <view class="bottom-item-other ">
+                       <view class="time ">
+                           <text>{{list[2].publish_time}}</text>
+                           <text>来源:{{list[2].source_topic}}</text>
+                       </view>
+                       <view class="read-num ">
+                           <text>{{list[2].read_num||0}}阅读</text>
+                       </view>
+                   </view>
+               </view>
+               <view class="bottom-item-right ">
+                   <!-- <image src="{{list[2].cover_img}} " mode='aspectFill' lazy-load></image> -->
+                <my-image mode="aspectFill" src="{{list[2].cover_img}}" class="image"></my-image>
+
+               </view>
+           </view>
+           <view class="bottom-item " bindtap="goInDetails" data-id="{{list[3].id}}" data-search_status="{{list[3].search_status}}">
+                <view class="bottom-item-left ">
+                    <view class="bottom-item-title ">
+                        <text>{{list[3].title}}</text>
+                    </view>
+                    <view class="bottom-item-other ">
+                        <view class="time ">
+                            <text>{{list[3].publish_time}}</text>
+                            <text>来源:{{list[3].source_topic}}</text>
+                        </view>
+                        <view class="read-num ">
+                            <text>{{list[3].read_num||0}}阅读</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom-item-right ">
+                    <!-- <image src="{{list[3].cover_img}} " mode='aspectFill' lazy-load></image> -->
+                <my-image mode="aspectFill" src="{{list[3].cover_img}}" class="image"></my-image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

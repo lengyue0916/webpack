@@ -1,0 +1,50 @@
+<view class="commentMore">
+    <view class="weui-flex">
+        <view class="weui-flex__item numbers">{{count}}条评论</view>
+    </view>
+    <view class="comment_list" wx:for="{{commentList.data}}" wx:for-index="idx" wx:key="{{item.p_comment.pid}}">
+        <view class="weui-cell">
+            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                <image src="{{item.p_comment.user_avatar}}" class="comment_photo" />
+            </view>
+            <view class="weui-cell__bd">
+                <view class="is_name">{{item.p_comment.user_name}}</view>
+                <view class="is_date">{{item.p_comment.created_at}}</view>
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd" style="margin-left: 40px;color:#333;">{{item.p_comment.content}}</view>
+            <view class="reply_l" wx:if="{{userInfo.id!=item.p_comment.user_id}}" bindtap="openReply" data-pid="{{item.p_comment.id}}" data-username="{{item.p_comment.user_name}}" data-userid="{{item.p_comment.user_id}}" data-index="{{idx}}">回复</view>
+        </view>
+        <view class="weui-cell weui-cell-reply" wx:for="{{item.s_comments}}" wx:for-item="s_comments" wx:key="{{s_comments.id}}">
+            <view class="weui-cell__bd" style="margin-left: 30px;color: #4f4f4f;">
+                <text>{{s_comments.user_name}}</text>
+                <text class="reply">回复</text>
+                <text>{{s_comments.reply_user_name}}:</text>
+                <text>{{s_comments.content}}</text>
+            </view>
+            <view class="reply_l" bindtap="openReply" wx:if="{{userInfo.id!=s_comments.user_id}}" data-pid="{{item.p_comment.id}}" data-username="{{s_comments.user_name}}" data-userid="{{s_comments.user_id}}" data-index="{{idx}}">回复</view>
+        </view>
+    </view>
+    <view class="page__fd" hidden="{{!commentList.isEnd}}">
+        <view class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{commentList.data.length==0?'暂无数据':'已显示全部'}}</view>
+        </view>
+    </view>
+</view>
+<!-- 弹出回复框 -->
+<view class="record-container" wx:if="{{openConfirm}}">
+    <view class="record-gird">
+        <textarea class="comment_text" placeholder="回复{{username}}:" name="textarea" maxlength="500" id="comment-textarea"/>
+        <view class="weui-flex" style="margin-top: 10px;">
+            <view class="weui-flex__item" bindtap="closeConfirm">
+                <button class="com_btn com_calc">取消</button>
+            </view>
+            <view class="weui-flex__item">
+                <button bindtap="submit" class="com_btn">发表</button>
+            </view>
+        </view>
+    </view>
+</view>
+<import src="../../templates/toast/toast.wxml" />
+<template is="toast" data="{{toastMsg,isToast}}"></template>

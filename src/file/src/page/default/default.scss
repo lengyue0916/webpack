@@ -1,0 +1,24 @@
+@import '../../theme_variable';
+page {
+
+   background:#fff;
+ .page {
+
+    .bannerImg {
+      width:100%;
+      height:80vh;
+    } 
+	
+    .oBtn {
+       width:90%;
+       margin:20rpx auto;
+       height:80rpx;
+       line-height:80rpx;
+       text-align:center;
+       background:#d90012;
+       color:#fff;
+       border-radius:10rpx;
+
+    }
+  }
+}

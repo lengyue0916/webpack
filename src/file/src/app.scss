@@ -1,0 +1,144 @@
+/**app.wxss**/
+@import 'theme_variable';
+
+
+page {
+    background: #edece8;
+    font-size: 30rpx;  
+    font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+image{
+    width: unset;
+    height: unset;
+}
+.fixed-button {
+    width: 70px;
+    height: 70px;
+    background-color: $theme_color;
+    font-size: 16px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0px 0px 5px 2px $theme_color;
+    line-height: 70px;
+    position: fixed;
+    z-index: 20;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
+}
+
+.share {
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 2200;
+
+    position: fixed;
+    top: 0px;
+    transition: all .2s;
+    background: rgba(0, 0, 0, 0);
+    &.open {
+        background: rgba(0, 0, 0, .6);
+    }
+    .share-head {
+        position: fixed;
+        top: 10vh; // height: 80vh;
+        width: 80vw;
+        left: 10vw;
+        border-radius: 5px;
+        background: #fff;
+        .share-title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 40rpx;
+            margin-top: 10rpx;
+            margin-bottom: 10rpx;
+        }
+        .share-canvas {
+            margin: 0px auto;
+            border: 1px solid #ccc;
+            width: 70vw;
+            height: 55vh;
+            canvas {
+                width: 70vw;
+                height: 55vh;
+            }
+        }
+        .shre-tips {
+            padding: 5px 6vw;
+            color: #666666
+        }
+        .share-ok {
+            border-top: 1px solid #cccccc;
+            height: 40px;
+            line-height: 40px;
+            color: $theme_color;
+        }
+    }
+    .share-foot {
+        position: fixed;
+        bottom: -139px;
+        width: 100vw;
+        border-top: 1px solid #828282;
+        background: #fff;
+        transition: all .2s;
+        transform: translateY(0px);
+        &.close-model {
+            transform: translateY(0px);
+        }
+        &.open-model {
+            transform: translateY(-139px);
+        }
+        .share-img {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            button {
+                padding-bottom: 8px;
+                padding-top: 8px;
+                padding-right: 0px;
+                padding-left: 0px;
+                margin-left: 16px;
+                margin-right: 0px;
+                background: transparent;
+                .icon-title {
+                    color: #cccccc;
+                    font-size: 12px;
+                    line-height: 25px;
+                }
+                .share-icon,
+                image {
+                    width: 34px;
+                    height: 34px;
+                }
+                .share-icon {
+                    padding: 8px 8px 0px;
+                }
+                &:after,
+                &:before {
+                    border: 0px;
+                }
+            }
+        }
+        .cancel-btn {
+            border-top: 5px solid #cccccc;
+            line-height: 50px;
+            height: 50px;
+            text-align: center;
+        }
+    }
+}
+
+
+
+@import "templates/loading/loading";
+@import 'assets/lib/weui';
+@import 'assets/lib/iconfont';
+@import 'assets/lib/iconfont1';
+
+@import "templates/toast/toast";   
+.wxParse-inline {
+    font-size: 1.2em;
+}

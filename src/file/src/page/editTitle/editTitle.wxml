@@ -1,0 +1,10 @@
+<view class="title">
+	
+    <textarea class="text_area" placeholder="请输入标题" maxlength="30" bindinput="bindinput" value="{{title}}" auto-focus cursor-spacing="178" id="textarea" bindinput="bindinput"></textarea>
+    <view class="tips">提示：直接返回将会放弃你本次你输入的内容</view>
+    <view class="complete">
+    	
+    	<button class="complete weui-btn" type="primary" bindtap="complete">完成</button>
+    </view>
+    
+</view>

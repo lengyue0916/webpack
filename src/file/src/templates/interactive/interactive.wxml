@@ -1,0 +1,63 @@
+<template name="interactive">
+    <view class="comment">
+        <view class="weui-flex">
+            <view class="weui-flex__item" style="color: #818181;">评论{{article_comments_count}}</view>
+            <view class="weui-flex__item do_comment" bindtap="openConfirm">我要评论</view>
+        </view>
+        <view class="section" wx:if="{{commentList.length==0}}">
+            <image src="../../assets/img/shafa.png" class="no_comment" />
+            <view class="temporary_no">暂无评论</view>
+        </view>
+        <view class="comment_list" wx:for="{{commentList}}" wx:key="{{item.id}}">
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{item.user_avatar || '../../assets/img/yonghu.png'}}" class="comment_photo" />
+                </view>
+                <view class="weui-cell__bd">
+                    <view class="is_name">{{item.user_name}}</view>
+                    <view class="is_date">{{item.created_at}}</view>
+                </view>
+            </view>
+            <view class="weui-cell" style="padding-left: 45px;color: #333;">
+                <view class="weui-cell__bd" style="word-break:break-all;">{{item.content}}</view>
+            </view>
+        </view>
+        <navigator class="view_all" wx:if="{{commentList.length!=0}}" hover-class="navigator-hover" class="view_all" url="../../page/commentMore/commentMore?article_id={{article_id + '&atype='+atype}}">查看所有评论</navigator>
+        <!-- 弹出评论框 -->
+        <view class="record-container" hidden="{{!openConfirm}}" capture-catch:touchmove="fixed">
+            <view class="record-gird">
+                <textarea class="comment_text" id="comment-textarea" placeholder="最多可输入500字" name="textarea" maxlength="500" fixed  value="{{comment_value}}"></textarea>
+                <view class="weui-flex">
+                    <view class="weui-flex__item" bindtap="closeConfirm">
+                        <button class="com_btn com_cale">取消</button>
+                    </view>
+                    <view class="weui-flex__item">
+                        <button bindtap="submit" class="com_btn">发表</button>
+                    </view>
+                    
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="like">
+        <view class="weui-flex">
+            <view class="weui-flex__item" style="color: #818181;">点赞{{article_votes_count}}</view>
+        </view>
+        <view class="like_group" style="background: #fff;" wx:if="{{votes.length==0}}">
+            <view class="like_list" bindtap="like">
+                <i class="iconfont {{is_vote==0?'icon-dianzan':'icon-dianzanmw'}}"></i>
+            </view>
+            <view class="temporary_no">点个赞吧</view>
+            <view style="height:45px"></view>
+        </view>
+        <view class="like_group" style="background: #fff;" wx:if="{{votes.length!=0}}">
+            <view class="like_list" bindtap="like">
+                <i class="iconfont {{is_vote==0?'icon-dianzan':'icon-dianzanmw'}}"></i>
+            </view>
+            <view class="like_list">
+                <image wx:for="{{votes}}" wx:key="{{item.user_id}}" src="{{item.user_avatar || '../../assets/img/yonghu.png'}}" class="like_st" />
+            </view>
+            <navigator hover-class="navigator-hover" class="view_all" url="../../page/thumbMore/thumbMore?article_id={{article_id + '&atype='+atype}}">查看所有点赞</navigator>
+        </view>
+    </view>
+</template>

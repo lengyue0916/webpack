@@ -1,0 +1,77 @@
+<template name="default">
+    <view class="default">
+        <view class="article-header">
+            <view class="title">{{title}}</view>
+            <view class='info'>
+                <navigator class='username' url="../attenDetail/attenDetail?id={{user_info.id}}">
+                    <text class="mark">{{user_info.truename}}</text>
+                </navigator>
+                <view class='username' style="margin-left: 20px;">
+                    <text class="mark">{{user_hobby_name}}</text>
+                </view>
+                <view class='username' style="float: right;" wx:if="{{userId!=user_id}}">
+                     <button disabled="{{is_focus == 1}}" class="weui-btn mini-btn {{is_focus == 1?'guan-zhu':'guanzhu'}}" size="mini" bindtap="attenBtn">{{ is_focus == 1 ? '已':'+'}}关注</button>
+                </view>
+                <view>
+                    <text style="color:#828282;">{{created_at}}</text>
+                    <text style="margin-left: 20px;">{{read_num}}阅读</text>
+                </view>
+            </view>
+            <view class="background-music" hidden="{{!article_bgmusic}}">
+                <image class="music-bg" src="./../../assets/img/music_icon_bg.png" bindtap="playMusic">
+                    <view class="music-icon">
+                        <text class="iconfont icon-bofang" hidden="{{article_bgmusic.status}}"></text>
+                        <text class="iconfont icon-zanting" hidden="{{!article_bgmusic.status}}"></text>
+                    </view>
+                </image>
+                <view class="music-name">
+                    <text>{{article_bgmusic.name}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="article-snippets">
+            <block wx:for="{{article_contents}}" wx:key="{{item.id}}" wx:for-index="index">
+                <!-- 文字 -->
+                <view class="snippet" wx:if="{{item.content_type===0}}" style="background:#fff">
+                    <view class="snippet-content">
+                        <text>{{item.content}}</text>
+                    </view>
+                </view>
+                <!-- 图片 -->
+                <view class="snippet" wx:if="{{item.content_type===1}}" id="{{item.id}}" style="background:#fff">
+                    <view class="snippet-content">
+                        <image style="width:100%;" mode="widthFix" bindtap="browseImage" src="{{item.resource_url}}" data-src="{{item.resource_url}}" />
+                        <text>{{item.content}}</text>
+                    </view>
+                </view>
+                <!-- 语音 -->
+                <view class="snippet" wx:if="{{item.content_type===2}}" id="{{item.id}}" style="background:#fff;">
+                     <record poster="{{user_info.user_avatar}}" name="{{user_info.wx_name}}" url="{{item.resource_url}}"  binderror="playError" wx:if="{{item.media_type=='mp3'}}"></record>
+                    <view class="snippet-record" style="background:url('../../assets/img/luyin.png') no-repeat 100% 100%;" wx:else>
+                        <view class="record-button" bindtap="controlRecord" data-index="{{index}}">
+                             <!-- 已经添加录音  -->
+                            <view class="weui-loading record-loading" hidden="{{item.status!='loading'}}"></view>
+                            <view class="record-dong iconfont icon-bofang" hidden="{{item.status!='done'}}"></view>
+                             <!-- 正在播放  -->
+                            <view class="record-play iconfont icon-zanting" hidden="{{item.status!='play'}}"></view>
+                             <!-- 播放暂停  -->
+                            <view class="record-end iconfont icon-bofang" hidden="{{item.status!='pause'}}"></view>
+                        </view>
+                    </view>
+                    <text>{{item.content}}</text>
+                </view>
+                <!-- 视频 -->
+                <view class="snippet" wx:if="{{item.content_type===3}}" id="{{item.id}}" style="background:#fff;">
+                    <!-- <navigator style="position: relative;" url="../video_play/video_play?url={{item.resource_url}}">
+                        <image src="" mode="aspectFill" style="width:100%;height:180px;"></image>
+                        <view style="position: absolute;color: #fff;top:0px;left:0px;width: 100%;height: 180px;line-height:180px;background: rgba(0,0,0,.2);text-align:center;">
+                             <i class="iconfont icon-bofang" style="font-size:40px;"></i>
+                        </view>
+                    </navigator> -->
+                    <my-video poster="{{item.resource_url}}?vframe/jpg/offset/3" src="{{item.resource_url}}" ></my-video>
+                    <text>{{item.content}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,4 @@
+/node_modules
+/dist
+/src/services/config.js
+/config.js

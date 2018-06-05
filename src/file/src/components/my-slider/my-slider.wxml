@@ -1,0 +1,92 @@
+<import src="_cover.wxml" />
+<import src="_one.wxml" />
+<import src="_one-2.wxml" />
+<import src="_two.wxml" />
+<import src="_three-1.wxml" />
+<import src="_three-2.wxml" />
+<import src="_three-3.wxml" />
+<import src="_four-1.wxml" />
+<import src="_four-2.wxml" />
+<import src="_four-3.wxml" />
+<import src="_five.wxml" />
+<import src="_yearCard.wxml" />
+<import src="_newCard.wxml" />
+<view class="noData" hidden="{{sliderList.list.length>0||loading}}">
+    <view class="icon"><i class="iconfont icon-smile"></i></view>
+    <view class="text">暂无数据</view>
+</view>
+<!-- <view capture-bind:touchstart='touchstart' capture-catch:touchmove="touchmove" class="container" wx:if="{{sliderList&&sliderList.length>0}}">
+    <view class="page current-page" >
+        <view class="page-top" animation="{{prevTop}}">
+            <view class="page-container">
+                <template is="{{sliderList[currnetIndex].type}}" data="{{...sliderList[currnetIndex],currnetIndex}}"></template>
+            </view>
+        </view>
+        <view class="page-bottom" animation="{{nextBottom}}">
+            <view class="page-container">
+                <template is="{{sliderList[currnetIndex].type}}" data="{{...sliderList[currnetIndex],currnetIndex}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="page perv-page" wx:if="{{currnetIndex>0}}" capture-catch:touchmove="disabled">
+        <view class="page-top">
+            <view class="page-container">
+                <template is="{{sliderList[currnetIndex-1].type}}" data="{{...sliderList[currnetIndex-1],currnetIndex}}"></template>
+            </view>
+        </view>
+        <view class="page-bottom" animation="{{prevBottom}}">
+            <view class="page-container">
+                <template is="{{sliderList[currnetIndex-1].type}}" data="{{...sliderList[currnetIndex-1],currnetIndex}}"></template>
+            </view>
+        </view>
+    </view>
+    
+    <view class="page next-page" wx:if="{{currnetIndex+1<sliderList.length}}" capture-catch:touchmove="disabled">
+        <view class="page-top" animation="{{nextTop}}">
+            <view class="page-container">
+                <template is="{{sliderList[currnetIndex+1].type}}" data="{{...sliderList[currnetIndex+1],currnetIndex}}"></template>
+            </view>
+        </view>
+        <view class="page-bottom">
+            <view class="page-container">
+                <template is="{{sliderList[currnetIndex+1].type}}" data="{{...sliderList[currnetIndex+1],currnetIndex}}"></template>
+            </view>
+        </view>
+    </view>
+</view> -->
+<view class="container" bindtouchstart="touchstart" bindtouchmove="touchmove">
+    <view class="page-item page-top" wx:if="{{page1.data}}" style="z-index: {{page1.indexTop}};" animation="{{page1.animationTop}}">
+        <view class="page-container">
+            <view class="page-wrap">
+                <template is="{{page1.data.type}}" data="{{...page1.data}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="page-item page-bottom" wx:if="{{page1.data}}" style="z-index: {{page1.indexBottom}};" animation="{{page1.animationBottom}}">
+        <view class="page-container">
+            <view class="page-wrap">
+                <template is="{{page1.data.type}}" data="{{...page1.data}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="page-item page-top" wx:if="{{page2.data}}" style="z-index: {{page2.indexTop}};" animation="{{page2.animationTop}}">
+        <view class="page-container">
+            <view class="page-wrap">
+                <template is="{{page2.data.type}}" data="{{...page2.data}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="page-item page-bottom" wx:if="{{page2.data}}" style="z-index: {{page2.indexBottom}};" animation="{{page2.animationBottom}}">
+        <view class="page-container">
+            <view class="page-wrap">
+                <template is="{{page2.data.type}}" data="{{...page2.data}}"></template>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:for="{{sliderList.list}}" wx:key="{{index}}">
+    <image wx:if="{{item.type=='cover'}}" src="{{item.cover_img}}?imageslim" style="display:none"></image>
+    <block wx:else>
+        <image src="{{tep.cover_img}}?imageslim" wx:for="{{item.list}}" style="display:none" wx:for-item="tep" wx:for-index="idx" wx:key="idx"></image>
+    </block>
+</block>

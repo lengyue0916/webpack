@@ -1,0 +1,36 @@
+<view class="card">
+    <view class="card-head" style="width:{{width}}px;">
+        <view class="card-img" bindtap="person">
+            <image src="{{item.user_info.user_avatar || item.user_info.wx_avatar}}" />
+        </view>
+        <view class="card-contain" style="width:calc({{width}}px - 119px);">
+            <view class="card-name">{{item.user_info.truename || item.user_info.wx_name}}</view>
+            <view class="card-read">
+                <text class="read" style="color: #bdbdbd;">{{item.created_at}}</text>
+                <text class="textread" style="float: right;margin-right: 30px;">{{item.read_num || '0'}}阅读</text>
+            </view>
+        </view>
+        <view wx:if="{{userId!=user_id}}" class="card-focus">
+            <button disabled="{{is_focus == 1}}" class="weui-btn mini-btn {{is_focus == 1?'guan-zhu':'guanzhu'}}" size="mini" bindtap="focus">{{ is_focus == 1 ? '已':'+'}}关注</button>
+        </view>
+    </view>
+    <view class="card-bd" id="cover_img" bindtap="detail" style="width:{{width}}px;height: {{width/2}}px;">
+        <image class="image" style="width:{{width}}px;height: {{width/2}}px" src="{{item.cover_img}}" mode="aspectFill" lazy-load="true"></image>
+        <view class="list_title" style="width:{{width}}px;">
+            <text>{{item.title}}</text>
+        </view>
+    </view>
+    <view class="bd_bottom">
+        <view class="bd_bottom_l" bindtap="editClick">
+        	<i class="iconfont icon-dianzan"></i>
+            <text>点赞</text>
+        </view>
+        <view class="bd_bottom_l" bindtap="collectionClick">
+            <i class="iconfont icon-shoucang-copy"></i>
+            <text>收藏</text>
+        </view>
+        <view class="bd_bottom_l">
+            <text>分享</text>
+        </view>
+    </view>
+</view>s

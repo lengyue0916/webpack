@@ -1,0 +1,49 @@
+{
+  "name": "leyang",
+  "version": "1.0.0",
+  "description": "上善荣益微社区小程序",
+  "main": "mian.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "build": "^0.1.4",
+    "crypto-js": "^3.1.9-1",
+    "moment": "^2.18.1"
+  },
+  "devDependencies": {
+    "babel-preset-latest": "^6.24.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-jsonminify2": "^1.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch-path": "^0.1.0",
+    "minimist": "^1.2.0",
+    "node-sass": "^4.5.3",
+    "run-sequence": "^2.1.0",
+    "stream-combiner2": "^1.1.1"
+  },
+  "scripts": {
+    "dev": "gulp dev --env development",
+    "dev:clean": "gulp dev:clean --env development",
+    "build": "gulp build",
+    "test": "jest",
+    "start": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@172.16.101.16:weixin/leyang.git"
+  },
+  "author": "Racaly",
+  "license": "MIT"
+}

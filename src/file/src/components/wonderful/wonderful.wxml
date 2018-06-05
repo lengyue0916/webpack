@@ -1,0 +1,18 @@
+<view class="won-contain" bindtap="goDetail" data-id="{{item.id}}" data-search_status="{{item.search_status}}">
+    <view class="won-left">
+        <view class="top">
+            <text>{{item.title}}</text>
+        </view>
+        <view class="bottom">
+            <view class="bottom-left">
+                <text>{{item.create_time}}</text>
+            </view>
+            <view class="bottom-right">
+                <text>{{item.read_num | '0'}}阅读</text>
+            </view>
+        </view>
+    </view>
+    <view class="won-right">
+        <image class="images_figure" src="{{item.cover_img}}" mode="aspectFill"/>
+    </view>
+</view>

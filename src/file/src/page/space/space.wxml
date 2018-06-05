@@ -1,0 +1,37 @@
+<import src="../../templates/loading/loading.wxml" />
+<import src="../../templates/toast/toast.wxml" />
+<template is="loading" data="{{loading}}"></template>
+<template is="toast" data="{{toastMsg,isToast}}"></template>
+<scroll-view class="scroll" scroll-y bindscrolltolower="loadmore">
+    <my-swiper  swiper-list="{{magazine}}" width="140" bindend="Toast"></my-swiper>
+    <view class="dynamic">
+        <view class="tabs">
+            <view class="tabs-item {{type=='special'?'active':''}}" bindtap="tabs" data-type="special">专题</view>
+            <!--  <view class="tabs-item {{type=='master'?'active':''}}" bindtap="tabs" data-type="master">达人</view> -->
+            <!-- <view class="tabs-more" bindtap="tabsMore" data-type="master">更多</view> -->
+        </view>
+        <view class="tabs-list">
+            <view wx:for="{{special}}" wx:key="{{special.id}}" hidden="{{type=='master'}}" class="special {{type_id==item.id?'active':''}}" data-id="{{item.id}}"  bindtap="specChange">
+                <image class="special-img" src="{{item.cover_img}}" mode="aspectFill"></image>
+                <view class="title">{{item.name}}</view>
+            </view>
+            <!-- <view wx:for="{{master}}" wx:key="{{index}}" hidden="{{type=='special'}}" class="master" style="background:url({{item.img_url}});background-size:100%">
+                <text>{{item.name}}</text>
+            </view> -->
+            <view class="noData" hidden="{{(type=='special'&&special.length>0)||(type=='master'&&master.length>0)}}">
+                <view class="text">暂无数据</view>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <!--    <card item="{{item}}" userId="{{userInfo.id}}" wx:for="{{list}}" wx:key="{{item.id}}" binddelete="deleteClick"></card> -->
+        <wonder wx:for="{{list}}" item="{{item}}" wx:key="index"></wonder>
+    </view>
+    <view class="weui-loadmore" hidden="{{!loadMore||loading}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" hidden="{{loadMore||loading}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了<i class="iconfont icon-smile"></i></view>
+    </view>
+</scroll-view>

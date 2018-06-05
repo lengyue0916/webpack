@@ -1,0 +1,12 @@
+<view class="page">
+
+	<view class="line"></view>
+	<view class="orderDetails-Info">订单编号：{{order_sn}}</view>
+	<view class="orderDetails-Tip">
+		<view><icon type="success_no_circle" size="60" color="#42913f"></icon>订单提交成功</view>
+		<view wx:if="{{room_pay_way==1}}">等待商家确认后支付订金</view>
+		<view wx:elif="{{room_pay_way==0}}">等待商家确认后支付</view>
+	</view>
+	<view class="orderDetails-Tel">如有疑问，请拨打就喜欢客服电话：4008-75-4008</view>
+	<view class="orderDetails-btn"><button class="Btn" bindtap="submit">查看订单详情</button></view>
+</view>

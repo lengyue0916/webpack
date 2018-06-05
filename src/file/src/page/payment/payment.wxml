@@ -1,0 +1,67 @@
+<import src="../../templates/loading/loading.wxml" />
+<template is="loading" data="{{loading}}"></template>
+<import src="../../templates/toast/toast.wxml" />
+<template is="toast" data="{{toastMsg,isToast}}"></template>
+<view class="payment">
+	<!--<view>
+		<image src="../../assets/img/frides.png"></image>
+	</view>
+	<view>订单支付成功，等待商家确认！</view>
+	<view>如有问题拨打客服电话：400-820-5544</view>
+	<view bindtap="orderMara">进入订单管理》</view>-->
+	<view class="paymentState">
+        <view wx:if="{{orderDes.order_status=='wait_confirmation'}}">待确认！</view>
+		<view wx:elif="{{orderDes.order_status=='wait_pay'}}">等待支付！</view>
+        <view bindtap="ordercancel"><text class="cancel">取消订单</text></view>
+	</view>
+    
+    <view class="paymentlist Border">
+        <view class="paymentBT blankColor">{{orderDes.health_base.name}}</view>
+        <view class="paymentST">{{orderDes.health_base.address}}</view>
+    </view>
+
+    <view class="paymentlist Border">
+        <view class="blankColor">{{orderDes.room_name}}</view>
+        <view class="paymentST">入住：{{orderDes.time_start}} - {{orderDes.time_end}}  <text>{{orderDes.day_num}}晚*{{orderDes.room_num}}间</text></view>
+    </view>
+
+    <view class="paymentlist" wx:if="{{room_pay_way==1}}">
+        <view class="blankColor">订单金额 <text class="redColor"><text class="font24">￥</text><text class="priceTotal">{{orderDes.order_price}}</text></text>元</view>
+        <view class="paymentDes paymentDesMar">
+            <view>阶段１</view>
+            <view>订金：<text class="redColor"><text class="font24">￥</text>{{orderDes.Depositprice}}</text>元　　未支付</view>
+        </view>
+        <view class="paymentDes">
+            <view>阶段２</view>
+            <view>尾款：<text class="redColor"><text class="font24">￥</text>{{orderDes.Balanceprice}}</text>元　到店支付</view>
+        </view>
+
+    </view>
+
+    <view class="paymentlist" wx:if="{{room_pay_way==0}}">
+        <view class="blankColor">订单金额 <text class="redColor"><text class="font24">￥</text><text class="priceTotal">{{orderDes.order_price}}</text></text>元</view>
+     </view>
+    
+    <view class="line"></view>
+
+    <view class="paymentlist Border">
+    　　<view class="paymentInfo">订单信息</view>
+      <view class="tel" bindtap="Calling">
+         <view class="iconTel"><i class="iconfont icon-phone-channel1" style="font-size:14px;color:#fff"></i></view><text>联系客服</text>
+      </view>
+    </view>
+
+    <view class="orderDetail">
+        <view><text>联系人</text>{{orderDes.contact}}</view>
+        <view><text>手机号</text>{{orderDes.tel}}</view>
+        <view><text>订单编号</text>{{orderDes.order_sn}}</view>
+        <view><text>下单时间</text>{{orderDes.created_at}}</view>
+    </view>
+    <view wx:if="{{orderDes.order_status=='wait_pay'}}">
+        <view class="paymentPrice" wx:if="{{room_pay_way==1}}">订金：<text class="redColor"><text class="font26">￥</text>{{orderDes.Depositprice}}</text>元</view>
+        <view class="paymentPrice" wx:if="{{room_pay_way==0}}">总额：<text class="redColor"><text class="font26">￥</text>{{orderDes.order_price}}</text>元</view>
+        <view class="paymentBtn">
+        	<button class="Btn" bindtap="orderMara">去支付</button>
+        </view>
+   </view>
+</view>

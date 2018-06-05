@@ -1,0 +1,21 @@
+<!--page/error/error.wxml-->
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="warn" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">温馨提示</view>
+            <view class="weui-msg__desc">{{msg}}</view>
+        </view>
+
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <text class="weui-footer__link">西安上善荣益</text>
+                </view>
+                <view class="weui-footer__text">Copyright © 2012-2017 rytech</view>
+            </view>
+        </view>
+    </view>
+</view>
