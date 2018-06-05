@@ -1,9 +1,0 @@
-{
-    "enablePullDownRefresh": false,
-    "usingComponents":
-    {
-        "tabs": "/components/tabs/tabs",
-        "record": "/components/record/record",
-        "my-video": "/components/myVideo/myVideo"
-    }
-}

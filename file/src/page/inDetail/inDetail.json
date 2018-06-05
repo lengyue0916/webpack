@@ -1,8 +1,0 @@
-{
-	"enablePullDownRefresh":false,
-	"usingComponents": {
-		"tabs":"/components/tabs/tabs",
-		"my-video": "/components/myVideo/myVideo",
-		"share-modal": "/components/share-modal/share-modal"
-	}
-}

@@ -1,6 +1,0 @@
-<import src="../../templates/loading/loading.wxml" />
-<template is="loading" data="{{loading}}"></template>
-<view class="page">
-    <image src="../../assets/img/banner.jpg" class="bannerImg" mode="aspectFill"></image>
-   　<button class='oBtn' bindgetuserinfo='userInfoHandler' open-type='getUserInfo'>开启发现之旅</button>
-</view>

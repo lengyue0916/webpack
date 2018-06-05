@@ -1,7 +1,0 @@
-{
-	"navigationBarTitleText": "新春快乐",
-	"usingComponents": {
-		"tabs":"/components/tabs/tabs"
-	},
-	"disableScroll": true
-}
