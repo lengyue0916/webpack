@@ -1,0 +1,203 @@
+@import '../../theme_variable';
+
+
+page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .container {
+        width: calc(100vw - 16px);
+        height: calc(100vh - 16px);
+        display: flex; // background: #fff;
+        .hobby-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .title {
+
+                padding: 5px;
+
+                text-align: center;
+
+                color: #fff;
+
+                font-size: 1.1em;
+
+                background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, 0));
+
+                /* 标准的语法 */
+            }
+            .icon {
+
+                align-self: flex-end;
+            }
+            &.active {
+                box-sizing: border-box;
+                border: 2px solid $theme_color;
+                animation: selected .9s;
+            }
+        }
+    }
+}
+
+.hobby1 {
+    flex-direction: row;
+    .hobby-item {
+        flex: 1;
+    }
+}
+
+.hobby2 {
+    flex-direction: column;
+    justify-content: space-between;
+    .hobby-item {
+        flex: 0 1 49%;
+    }
+}
+
+.hobby3 {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+    .hobby-item {
+        flex: 0 1 48%;
+        height: 49%;
+        &:first-child {
+            flex: 0 1 100%;
+            height: 49%;
+        }
+    }
+}
+
+.hobby4 {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+    .hobby-item {
+        flex: 0 1 48%;
+        height: 49%;
+    }
+}
+
+.hobby5 {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+    .hobby-item {
+        flex: 0 1 48%;
+        height: 32%;
+        &:last-child {
+            flex: 0 1 100%;
+            height: 32%;
+        }
+    }
+}
+
+.hobby6 {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+    .hobby-item {
+        flex: 0 1 48%;
+        height: 32%;
+    }
+}
+
+.hobby7 {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+    .hobby-item {
+        flex: 0 1 24%;
+        width: 49%;
+        &:last-child {
+            flex: 0 1 49.4%;
+            width: 49%;
+        }
+    }
+}
+
+.hobby8 {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+    .hobby-item {
+        flex: 0 1 24%;
+        width: 49%;
+    }
+}
+
+@keyframes selected {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.determine_btn {
+    background: $theme_color;
+    color: #fff;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.flex__item {
+    width: -webkit-calc(50% - 22px);
+    height: 40vw;
+    padding: 10px;
+    position: relative;
+}
+
+.flex__item2:first-child {
+    width: -webkit-calc(100% - 22px);
+}
+
+.background_img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+}
+
+.save_click {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.habby_title {
+    width: calc(100% - 30px);
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    bottom: 0px;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+
+.selected {
+    border: 2px solid $theme_color;
+}

@@ -1,0 +1,64 @@
+/* page/base/base.wxss */
+page {
+	background:#fff;
+}
+.base{
+	padding:0px 8px;
+	height:100vh;
+	.scroller {
+           height:100vh;
+     }
+	.base-container{
+		/**width: calc(100vw - 16px);***/
+		width:100%;
+		position: relative;
+		margin-bottom:10px;
+		height:30vh;
+		image{
+			width: 100%;
+			height: 30vh;
+			border-radius:10rpx 10rpx 0 0;
+		}
+		.base-bottom{
+			position: absolute;
+			width: 100%;
+			bottom: 0px;
+			padding:2px 6px;
+			box-sizing:border-box;
+			/***background: rgba(217,0,18,.36);***/
+			background:rgba(0,0,0,.4);
+			.base-title{
+				font-size:38rpx;
+				color:#fff;
+				padding-bottom:2px;
+				padding-left:3px;
+				.base-price {
+					float:right;
+					padding-right:3px;
+					font-size:36rpx;
+					
+				}
+			}
+			.base-card{
+				display: flex;
+				align-items:center;
+				flex-wrap: wrap;
+				.base-text{
+					border: 1px solid #fff;
+					padding: 1px 4px;
+					border-radius: 0px;
+					margin: 0px 3px 5px 3px; 
+					color:#fff;
+					font-size:0.86em;
+				}
+			}
+		}
+	}
+
+	.page__fd{
+		padding-top:1em;
+		.weui-loadmore__tips_in-line {
+			background:#fff;
+		}
+	}
+}

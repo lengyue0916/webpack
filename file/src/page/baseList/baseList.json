@@ -1,0 +1,7 @@
+{ 
+	"navigationBarTitleText":"就喜欢-旅居",
+	"usingComponents":
+    {
+    	"tabs":"/components/basetabs/basetabs"
+    }
+}

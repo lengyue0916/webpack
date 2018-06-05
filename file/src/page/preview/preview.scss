@@ -1,0 +1,103 @@
+/* page/details/details.wxss */
+@import '../../theme_variable';
+@import "../../templates/default/default.scss";
+
+
+
+.template-container {
+    min-height: calc(100vh - 201px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.other {
+    background: #f1e8c7;
+    border-top: 1px solid #ccc;
+    .other-rule {
+        height: 30px;
+        line-height: 30px;
+        padding: 0px 16px;
+        .wx-checkbox-input {
+            height: 16px;
+            width: 16px;
+        }
+        .wx-checkbox-input.wx-checkbox-input-checked::before {
+            font-size: 14px;
+        }
+        .rule-title {
+            display: inline-block;
+            font-size: 14px;
+            color: #aaa;
+            text-decoration: underline;
+        }
+    }
+    .article-button {
+        padding: 8px 0px 0px;
+        height: 32px;
+        .left,
+        .right {
+            width: 50%;
+            display: inline-block;
+        }
+
+        button {
+            width: 100px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            line-height: 30px;
+            border-radius: 19px;
+            border: 1px solid $theme_color;
+            &.button-hover {
+                background-color: #bb1b1e;
+                color: #fff;
+            }
+        }
+        .submit {
+
+            background-color: $theme_color;
+        }
+        .back {
+            font-weight: 500;
+            color: $theme_color;
+            background-color: #fff;
+        }
+        .submit-disabled {
+            border: 1px solid #bbb;
+            color: #fff;
+            background-color: #bbb;
+            background: #bbb;
+        }
+    }
+    .article-template {
+        // background: #fff;
+        overflow-y: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        .template {
+
+            margin-left: 16px;
+            &:last-child {
+                margin-right: 16px;
+            }
+            width: 90px;
+            border:2px solid #fff;
+            display: inline-block;
+            height: 120px;
+            position: relative;
+            &.active {
+                border: 2px solid $theme_color;
+            }
+            .name {
+
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                text-align: center;
+                color: #fff;
+                height: 30px;
+                line-height: 30px;
+                background: rgba(0, 0, 0, .5);
+            }
+        }
+    }
+}

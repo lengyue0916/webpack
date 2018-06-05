@@ -1,0 +1,320 @@
+$door_width: 227rpx;
+$door_height: 40vh;
+$door_margin: 150rpx;
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+
+	flex-direction: column;
+	.top {
+		flex: 1;
+		background: #f6efd3;
+		position: relative;
+		perspective: 400px;
+		.house {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background: url('https://wx.ezu365.cn/IMG_1380.PNG?imageslim') center no-repeat;
+			background-size: 100% 100%;
+			z-index: 10;
+		}
+		.door-left {
+			width: $door_width;
+			height: $door_height;
+			position: absolute;
+			bottom: 0px;
+			left: $door_margin;
+			transform: rotateZ(-3.5deg);
+			transform-origin: left top;
+			background: url('https://wx.ezu365.cn/m-l.png?imageslim') center;
+			background-size: 100% 100%;
+			z-index: 3;
+			animation: open-door-left 2s 0.3s both;
+		}
+		.door-right {
+			width: $door_width;
+			height: $door_height;
+			position: absolute;
+			bottom: 0px;
+			right: $door_margin;
+			transform-origin: right top;
+			transform: rotateZ(3.5deg);
+			background: url('https://wx.ezu365.cn/m-r.png?imageslim') center;
+			background-size: 100% 100%;
+			z-index: 3;
+			animation: open-door-right 2s 0.3s both;
+		}
+		.dog-walk {
+			width: 245rpx;
+			height: 420rpx;
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			opacity: 0;
+			z-index: 11;
+			animation: door-walk 3s 0.6s linear forwards;
+			.dog-run {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				background: url('https://wx.ezu365.cn/dog.png?imageslim') center no-repeat;
+				animation: run .6s step-start 6;
+				background-position-y: 0rpx;
+				background-size: 100%;
+				z-index: 12;
+			}
+			.h-c {
+				width: 169px;
+				height: 67px;
+				position: absolute;
+				bottom: 18px;
+				left: -23px;
+				background: url('https://wx.ezu365.cn/IMG_1381.PNG?imageslim') center no-repeat;
+				background-size: cover;
+				opacity: 0;
+				z-index: 13;
+				animation: ani-h-c 1s 3.6s linear forwards;
+			}
+			.h-l {
+				width: 24px;
+				height: 60px;
+				position: absolute;
+				bottom: 20px;
+				left: 51px;
+				opacity: 0;
+				background: url('https://wx.ezu365.cn/h-l.png?imageslim') center no-repeat;
+				background-size: 100% 100%;
+				animation: ani-h-l 1s 3.6s linear forwards;
+				z-index: 15;
+			}
+			.h-r {
+				width: 24px;
+				height: 60px;
+				position: absolute;
+				bottom: 21px;
+				right: 48px;
+				opacity: 0;
+				z-index: 14;
+				background: url('https://wx.ezu365.cn/h-r.png?imageslim') center no-repeat;
+				background-size: 100% 100%;
+				animation: ani-h-r 1s 3.6s linear forwards;
+			}
+		}
+	}
+	.bottom {
+		width: 100vw;
+		height: 140px;
+		background: url('https://wx.ezu365.cn/lo.png?imageslim') center no-repeat;
+		background-size: 100% 100%;
+		color: rgb(241, 231, 172);
+		position: relative;
+		z-index: 10;
+		.hr {
+			width: 100vw;
+			height: 20px;
+			position: absolute;
+			top: -14px;
+			left: 0px;
+			z-index: 11;
+			background: url('https://wx.ezu365.cn/hr.png?imageslim') center;
+			background-size: 100% 100%;
+		}
+		.button {
+			width: 110px;
+			height: 44px;
+			position: absolute;
+			top: -34px;
+			right: 10px;
+			z-index: 18;
+			background:url('https://wx.ezu365.cn/share_buttom.png?imageslim')center no-repeat;
+			background-size:100% 100%;
+		}
+
+		.kuang {
+			width: 88vw;
+			height: 100px;
+			padding: 15px;
+			margin: 6px auto;
+			z-index: 11;
+			background: url('https://wx.ezu365.cn/k.png?imageslim') center no-repeat;
+			background-size: 100% 100%;
+			.photo {
+				height: 30px;
+				image {
+					width: 30px;
+					height: 30px;
+					border: 1px solid rgb(241, 231, 172);
+					border-radius: 50%;
+					float: left;
+				}
+				.text {
+					height: 30px;
+					margin-left: 10px;
+					line-height: 33px;
+					float: left;
+				}
+			}
+		}
+	}
+}
+
+.modal {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 21;
+	background: rgba(0, 0, 0, .5);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.close{
+			width: 30px;
+			height: 30px;
+			color:#fff;
+			margin: 20px;
+			border:1px solid #fff;
+			border-radius:50%; 
+			text-align: center;
+			line-height: 30px;
+			
+		}
+	.form {
+		width: 85vw;
+		padding: 10px;
+		.title {
+			text-align: center;
+			color: #d90012;
+			font-size: 18px;
+		}
+		.section {
+			display: flex;
+			justify-content: flex-start;
+			input {
+				width: 200px;
+				margin: 10px 0;
+				padding: 4px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+			textarea {
+				width: calc(100% - 8px);
+				margin: 0px auto;
+				padding: 4px;
+				height: 70px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+			button{
+				width: 100%;
+				color: rgb(241, 231, 172);
+				margin :10px auto 0px;
+				background:#d90012;
+			}
+		} 
+		background:rgba(255,
+		255,
+		255,
+		0.95);
+		border-radius:5px;
+	}
+	.share{
+		top:50vh;
+		right:0;
+		position: absolute;
+		height: 45px;
+		width: 15vh;
+		button::after {
+		    width: 0px;
+		    height: 0px;
+		}
+	}
+}
+
+@keyframes open-door-left {
+
+	from {
+		transform: rotateZ(-3.5deg) rotateY(0deg)
+	}
+	to {
+		transform: rotateZ(-3.5deg) rotateY(70deg)
+	}
+}
+
+@keyframes open-door-right {
+	from {
+		transform: rotateZ(3.5deg) rotateY(0deg)
+	}
+	to {
+		transform: rotateZ(3.5deg) rotateY(-70deg)
+	}
+}
+
+@keyframes run {
+	0% {
+		background-position-y: 0rpx;
+	}
+	50% {
+		background-position-y: -423rpx;
+	}
+	100% {
+		background-position-y: -855rpx;
+	}
+}
+
+@keyframes door-walk {
+	0% {
+		opacity: 0;
+		transform: translateX(-50%) scale(.2);
+	}
+	50% {
+		opacity: 1;
+		transform: translateX(-50%) scale(0.6);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(-50%) scale(1);
+	}
+}
+
+@keyframes ani-h-c {
+	from {
+		width: 0;
+		opacity: 1;
+		transform: translateX(89px);
+	}
+	to {
+		width: 169px;
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes ani-h-r {
+	from {
+		opacity: 1;
+		transform: translateX(0px) translateY(0px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(82px) translateY(-13px);
+	}
+}
+
+@keyframes ani-h-l {
+	from {
+		opacity: 1;
+		transform: rotateZ(19deg);
+	}
+	to {
+		opacity: 1;
+		transform: rotateZ(0deg) translateX(-86px) translateY(11px);
+	}
+}

@@ -1,0 +1,76 @@
+<import src="../../templates/loading/loading.wxml"/>
+<template is="loading" data="{{loading}}"></template>
+<view class="navbar">
+      <view wx:for="{{tab}}" wx:key="{{index}}" wx:for-item="Tabs" class="navbar-item　{{activeIndex==index?'navbarActive':''}}" data-tab="{{Tabs}}" id="{{index}}" bindtap="tabFun">{{Tabs}}</view>
+</view>
+
+<!--<view class="myCollection " wx:if="{{!loading}}">-->
+<view>	
+	<view class="myCollection {{activeIndex==0?'show':'hidden'}}">	
+	     <view class="weui-flex coll_content" wx:for="{{collectionList.data}}" wx:key="{{item.id}}" bindtap="goDetail" data-type="{{item.collectable_type}}" data-id="{{item.article_content.id}}" wx:if="{{item.collectable_type=='WechatTopic'}}">
+			<view class="coll_bd">
+				<view class="top">
+					<text>{{item.article_content.title}}</text>
+				</view>
+				<view class="weui-flex bottom">
+			            <view class="weui-flex__item" style="flex:3">
+			            		<text>{{item.created_at}}</text>
+			            </view>
+			            <view class="weui-flex__item" style="flex:2;text-align:right;">
+			            		<text>{{item.article_content.read_num}}阅读</text>
+			            </view>
+			            <view class="weui-flex__item cancle" style="flex:3;text-align:right;" catchtap="cancleCol" data-id="{{item.article_content.id}}" data-index="{{index}}" data-type="{{item.collectable_type}}">
+			            		<text>取消收藏</text>
+			            </view>
+	        	</view>
+			</view>
+			<view class="weui-flex__item">
+				<image class="images_figure" src="{{item.article_content.cover_img}}"/>
+			</view>
+		</view>
+	
+	<!--<view class="page__fd" hidden="{{!collectionList.isEnd}}">
+		<view class="weui-loadmore weui-loadmore_line">
+			<view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{collectionList.data.length==0?'暂无数据':'已显示全部'}}</view>
+		</view>
+	</view>-->
+    </view>
+
+	<view class="myCollection {{activeIndex==1?'show':'hidden'}}">
+		<view class="weui-flex coll_content" wx:for="{{collectionList.data}}" wx:key="{{item.id}}" bindtap="goDetail" data-type="{{item.collectable_type}}" data-id="{{item.article_content.id}}" data-item="{{item.article_content}}" wx:if="{{item.collectable_type=='HealthBase'}}">
+			<view class="coll_bd">
+				<view class="name">
+					<text>{{item.article_content.name}}</text>
+				</view>
+				<view class="address">
+			       <text>{{item.article_content.address}}</text>
+			    </view>
+				<view class="weui-flex bottom">
+			            <view class="weui-flex__item" style="flex:3">
+			            		<text>{{item.created_at}}</text>
+			            </view>
+			            
+			            <view class="weui-flex__item cancle" style="flex:3;text-align:right;" catchtap="cancleColbase" data-id="{{item.article_content.id}}" data-index="{{index}}" data-type="{{item.collectable_type}}">
+			            		<text>取消收藏</text>
+			            </view>
+	        	</view>
+			</view>
+			<view class="weui-flex__item">
+				<image class="images_figure" src="{{item.article_content.cover_img}}"/>
+			</view>
+		</view>
+		
+	</view>
+    <!--<view class="page__fd" hidden="{{!collectionList.isEnd}}">
+	   <view class="weui-loadmore weui-loadmore_line">
+		   <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{collectionList.data.length==0?'暂无数据':'已显示全部'}}</view>
+	   </view>
+    </view>-->
+	<!--加载更多-->
+	<view class="weui-loadmore" hidden="{{!isHideLoadMore}}">
+	  <view class="weui-loading"></view>
+	  <view class="weui-loadmore__tips">正在加载</view>
+	</view>
+</view>
+
+

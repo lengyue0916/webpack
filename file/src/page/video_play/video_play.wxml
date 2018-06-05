@@ -1,0 +1,3 @@
+<view  class="video-container">
+	<video src="{{url}}" autoplay="true"  objectFit="contain"></video>
+</view>

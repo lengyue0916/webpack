@@ -1,0 +1,7 @@
+{
+    "usingComponents":
+    {
+        "my-slider": "/components/my-slider/my-slider"
+    },
+    "disableScroll": true
+}

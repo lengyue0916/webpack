@@ -1,0 +1,62 @@
+/* page/musicList/musicList.wxss */
+
+@import '../../theme_variable';
+.list-group {
+    margin-bottom: 8px;
+    .group-title {
+        position: sticky;
+        top: 0px;
+        padding: 8px;
+        font-size: 18px;
+        color: $theme_color;
+        font-weight: 400;
+        background: #f3f3f3;
+        border-bottom: 1px solid #eaeaea;
+        flex-direction: row;
+        display: flex;
+        z-index: 999;
+        .group-name {
+            flex: 1;
+        }
+        .group-other {
+            width: 25px;
+        }
+    }
+    .weui-play {
+      
+        display: inline;
+    }
+    .child-list {
+        background: #fff;
+        transition: all .25s;
+        max-height: 0px;
+        overflow: hidden;
+        .list-item {
+            font-size: 17px;
+            padding: 8px 16px;
+            border-bottom: 1px solid #eaeaea;
+            flex-direction: row;
+            display: flex;
+            .music-name {
+                flex: 1;
+            }
+            .music-active {
+                text-align: center;
+                width: 25px;
+            }
+            .music-loading {
+                text-align: center;
+                width: 30px;
+            }
+            
+        }
+    }
+    .open-child {
+        max-height: 1000px;
+    }
+}
+.nodata{
+    padding:45px 0px ;
+    text-align: center;
+    color:#6c6c6c;
+}

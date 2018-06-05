@@ -1,0 +1,40 @@
+<import src="../../templates/loading/loading.wxml" />
+<template is="loading" data="{{loading}}"></template>
+<view class="page"  hidden="{{loading}}">
+    <view class="atten-title">
+        <view style="width:{{border_radius*2}}px;height: {{border_radius*2}}px;border-radius: 50%;border:1px solid #ccc;margin-top: {{50-border_radius*2 - 2}}px;margin-left: calc(50vw - {{border_radius + 1}}px)" class="atten-hudu"></view>
+        
+        <image class="atten-avartar" src="{{attention.user_avatar|| '../../assets/img/yonghu.png'}}"></image>
+        <view class="atten-info">
+            <view class="info">{{attention.truename}}</view>
+            <view class="info">
+                <text style="margin-right: 12px;">{{attention.fans_count}}</text>粉丝
+            </view>
+            <view class="info atten-btn" wx:if="{{userInfo.id!=atten_id}}">
+                <button disabled="{{attention.is_focused == 1}}" class="weui-btn mini-btn" size="mini" bindtap="attenBtn">{{ attention.is_focused == 1 ? '已':''}}关注</button>
+            </view>
+        </view>
+    </view>
+    <view class="atten-container">
+        <view>精彩内容</view>
+        <view class="page-one" wx:for="{{attentionList.data}}" wx:key="{{item.id}}" data-id="{{item.id}}">
+            <navigator url="../details/details?search_status=0&id={{item.id}}">
+                <view class="page__bd">
+                    <image class="main_figure" src="{{item.cover_img+'?imageslim'}}" />
+                    <view class="list_title">
+                        <text>{{item.title}}</text>
+                    </view>
+                </view>
+                <view class="weui-flex bd_bottom">
+                    <view class="weui-flex__item">{{item.created_at}}</view>
+                    <view class="weui-flex__item" style="text-align: right;">{{item.read_num || '0'}}阅读</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view class="page__fd" hidden="{{!attentionList.isEnd}}">
+        <view class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{attentionList.data.length==0?'暂无数据':'已显示全部'}}</view>
+        </view>
+    </view>
+</view>

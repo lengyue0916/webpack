@@ -1,0 +1,54 @@
+<view class="page">
+    <!-- 头部 -->
+    <view class="me-header">
+        <!-- 头像 -->
+        <view class="block" style=" background:url('{{userInfo.user_avatar || userInfo.wx_avatar}}');background-size: 100%; filter: blur(15px);">
+        </view>
+        <image class="user-photo" bindtap="avatarActionSheet" src="{{userInfo.user_avatar || userInfo.wx_avatar}}" />
+        <view style="width:{{border_radius*2}}px;height: {{border_radius*2}}px;border-radius: 50%;border:1px solid #ccc;margin-top: {{50-border_radius*2 - 2}}px;margin-left: calc(50vw - {{border_radius + 1}}px)" class="atten-hudu"></view>
+        <!-- 名称 -->
+        <view class="nickname">
+            <input type="text" class="weui-search-bar__input" placeholder="昵称" value="{{userInfo.truename || userInfo.wx_name}}" bindfocus="modifyName" bindblur="saveName" maxlength="10" />
+            <!-- <span class="modify_name" wx:if="{{showIconfont}}">
+                  <i class="iconfont icon-bianji modify_icon"></i>
+            </span> -->
+        </view>
+    </view>
+    <view class="temporary">
+        <navigator class="temp-sub" url="/page/history/history">往期回顾</navigator>
+        <navigator class="temp-sub" url='/page/subscription/subscription'>我的订阅</navigator>
+    </view>
+    <!-- 精彩内容 -->
+    <!-- <navigator url='/page/myContent/myContent'>
+        <view class="page__fd">
+            <i class="iconfont icon-jingcailuzhi"></i>个人作品
+        </view>
+    </navigator> -->
+   <!--  <navigator url='/page/subscription/subscription'>
+        <view class="page__fd">
+            <i class="iconfont icon-dingyue"></i>我的订阅
+        </view>
+    </navigator> -->
+    <!-- <navigator url='/page/attention/attention'>
+        <view class="page__fd">
+            <i class="iconfont icon-guanzhu"></i>我的关注
+        </view>
+    </navigator> -->
+    <navigator url='/page/myCollection/myCollection'>
+        <view class="page__fd">
+           <i class="iconfont icon-shoucang1"></i>我的收藏
+        </view>
+    </navigator>
+    <navigator url='/page/bootPage/bootPage'>
+        <view class="page__fd">
+            <i class="iconfont icon-xiaolian1"></i>我的兴趣
+        </view>
+    </navigator>
+    <navigator url='/page/orderManage/orderManage'>
+        <view class="page__fd">
+            <i class="iconfont icon-wodedingdan1"></i>我的订单
+        </view>
+    </navigator>
+</view>
+<import src="../../templates/toast/toast.wxml" />
+<template is="toast" data="{{toastMsg,isToast}}"></template>
