@@ -12,7 +12,7 @@
 		padding:0;
 		margin:0;
 	}
-	#oDiv {
+	#oDiv,#oDiv1{
 		width:600px;
 		height:260px;
 		position:relative;
@@ -35,7 +35,7 @@
 	.next {
 		right:0;
 	}
-	#oDiv ul.preImg {
+	#oDiv ul.preImg, #oDiv1 ul.preImg {
 		/***width:500%;***/
 		position:absolute;
 		left:0;
@@ -118,41 +118,91 @@
     		<span></span>
     	</div>
     </div>
+
+    <div id="oDiv1">
+        <a href="javascript:;" class="prev"> < </a>
+        <a href="javascript:;" class="next"> > </a>
+        <ul class="preImg">
+            <li>
+                <img src="../../img/image/01.png" />
+                <p>图1</p>
+            </li>
+            <li>
+                <img src="../../img/image/02.jpg" />
+                <p>图2</p>
+            </li>
+            <li>
+                <img src="../../img/image/03.jpg" />
+                <p>图3</p>
+            </li>
+            <li>
+                <img src="../../img/image/04.jpg" />
+                <p>图4</p>
+            </li>
+            <li>
+                <img src="../../img/image/02.jpg" />
+                <p>图5</p>
+            </li>
+            <li>
+                <img src="../../img/image/03.jpg" />
+                <p>图6</p>
+            </li>
+        </ul>
+
+        <div class="divDot">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
     <script>
-    	var oDiv=document.querySelector('#oDiv');
-    	var oUl=oDiv.querySelector('.preImg');
-    	var oDot=oDiv.querySelector('.divDot');
-    	var lis=oUl.querySelectorAll('li');
-    	var oSpan=oDot.querySelectorAll('span');
 
-    	var prev=oDiv.querySelector('.prev');
-    	var next=oDiv.querySelector('.next');
+    showPaly("#oDiv");
+    showPaly("#oDiv1");
 
-    	var len=lis.length;
-    	var w=parseInt(getStyle(lis[0], 'width'));
+    function showPaly(el){
+        var oDiv=document.querySelector(el);
+        var oUl=oDiv.querySelector('.preImg');
+        var oDot=oDiv.querySelector('.divDot');
+        var lis=oUl.querySelectorAll('li');
+        var oSpan=oDot.querySelectorAll('span');
+
+        var prev=oDiv.querySelector('.prev');
+        var next=oDiv.querySelector('.next');
+
+        var len=lis.length;
+        var w=parseInt(getStyle(lis[0], 'width'));
         //var timer=0;
-    	
+        
 
-    	oUl.style.width=w*len + 'px';
+        oUl.style.width=w*len + 'px';
 
-    	function getStyle(el, attr) {
-    		return el.currentStyle ? el.currentStyle[attr] : getComputedStyle(el, null)[attr];
-    	}
+        function getStyle(el, attr) {
+            return el.currentStyle ? el.currentStyle[attr] : getComputedStyle(el, null)[attr];
+        }
+        
+        autoPlay();
 
-        oDiv.timer=setInterval(function(){
+        function autoPlay(){
+            oDiv.timer=setInterval(function(){
             fnTab('next');
-        },2000)
+          },2000)
+        }
+        
 
         for(var i=0; i<oSpan.length; i++ ) {
-        	oSpan[i].index=i;
-        	oSpan[i].onclick=function(){
+            oSpan[i].index=i;
+            oSpan[i].onclick=function(){
                 clearInterval(oDiv.timer);
-        		for(var i=0; i<oSpan.length; i++) {
+                for(var i=0; i<oSpan.length; i++) {
                    oSpan[i].className='';
-        		}
-        	  this.className='active';
-        	  oUl.style.left=(-w*this.index)+ 'px';
-        	}
+                }
+              this.className='active';
+              oUl.style.left=(-w*this.index)+ 'px';
+            }
         }
 
         prev.onclick=function(){
@@ -182,12 +232,13 @@
              oSpan[n].className='active';
              oUl.style.left=lf + 'px';
         }
-        // oDiv.onmouseout=function () {
-        //   timer=setInterval(function(){
-        //     fnTab('prev');
-        //   },1500)
-        // }
-
+        oDiv.onmouseenter = function () {
+            clearInterval(oDiv.timer);
+        }
+        oDiv.onmouseleave = function () {
+            autoPlay();  
+        } 
+     }
     </script>
 </body>
 </html>

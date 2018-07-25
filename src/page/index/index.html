@@ -71,14 +71,31 @@
 </body>
 <script>
   (function(){
-     var oInput=document.querySelectorAll("input[type='text']");
-     for(var i=0; i<oInput.length; i++) {
-       //oInput[i].index=i;
-       //console.log(oInput[i].value);
-       oInput[i].onclick=(function (num){
-           console.log(oInput[num].value);
-       })(i)
-     }
+     // var oInput=document.querySelectorAll("input[type='text']");
+     // for(var i=0; i<oInput.length; i++) {
+     //   //oInput[i].index=i;
+     //   //console.log(oInput[i].value);
+     //   oInput[i].onclick=(function (num){
+     //       console.log(oInput[num].value);
+     //   })(i)
+     // }
+     let array=[{
+      age:18,
+      arr:[1,2,3],
+      name:123
+     },{
+      age:18,
+      arr:[1,2,3],
+      name:456
+
+     },{
+      age:18,
+      arr:[1,2,3],
+      name:786
+    }];
+    array.indexof(array.arr);
+    console.log()
+
   })()
   // (function(){
   //      var oDiv=document.querySelector("#oDiv");

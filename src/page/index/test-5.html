@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		padding:0;
+		margin:0;
+	}
+	#comment {
+        width:300px;
+        border:1px solid #eee;
+        margin:60px auto;
+        text-align:center;
+        height:100px;
+        line-height:100px;
+	}
+	#comment span {
+		width:20px;
+		height:20px;
+		display:inline-block;
+        border-radius:50%;
+        background:#eee;
+        margin:0 5px;
+	}
+	#comment span.active {
+		background:#ff9900;
+	}
+</style>
+</head>
+<body>
+	<!--<p id="oP">
+		<span>作为一个程序猿挺不容易的，做一个前端程序猿更加不容易。技术日新月异。每天要去摄取更多的技术来源，心有千言，难于罄书。但我们都是热于分享的人，能够把自己遇到的问题以及如何解决的方式写出来，总是希望这样可以帮助到更多同样遇到这类问题的你，我，他。或于这就是社区的力量，这就是优秀程序员的品质吧。小程序的学习依旧要铆足劲的去学习，后面还有wepy,Mpvue等新技术在等着我们，我已经踏上了那片领地的征程，日后也会发布遇到的问题、bug和我的作品。希望对你有所帮助，我们的口号是热于分享热于创作。</span>
+		<a href="javascript:;">收缩</a>
+	</p>-->
+	  <div id="comment">
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+	  </div>
+    <script>
+    	// var oP=document.querySelector('#oP');
+     //    var oA=oP.querySelector('a');
+     //    var oSpan=oP.querySelector('span');
+     //    var str=oSpan.innerHTML;
+     //    var flag=true;
+     //    oA.onclick=function(){
+     //    	if(flag) {
+     //    		oSpan.innerHTML=str.substring(0,100)+'……';
+     //    	    oA.innerHTML='展开';
+     //    	}else {
+     //    		oSpan.innerHTML=str;
+     //    	    oA.innerHTML='收缩';
+     //    	}
+     //    	flag=!flag;
+     //    }
+     var oDiv=document.querySelector('#comment');
+     var oSpan=oDiv.querySelectorAll('span');
+     var timer=0;
+     for(var i=0; i<oSpan.length; i++ ) {
+     	oSpan[i].index=i;
+     	oSpan[i].onmouseover=function(){
+     		this.className='active';
+     	}
+     	timer=setTimeout(function(){
+            oSpan[i].onmouseout=function(){
+            this.className='active';
+         }
+        },3000);
+     }
+    </script>
+</body>
+</html>
